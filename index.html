@@ -1,0 +1,1706 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Сравнение кредитных предложений 10 банков Молдовы — rata.md"></head><body><title>rata.md</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Onest:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#F6F2E9;
+    --surface:#FFFFFF;
+    --surface-2:#FBF8F1;
+    --ink:#211A12;
+    --ink-dim:#6B6153;
+    --line:#E6DDC9;
+    --line-strong:#D8CBAD;
+    --accent:#1F6F72;
+    --accent-ink:#FFFFFF;
+    --accent-soft:#DFEEEC;
+    --accent-soft-line:#BFDAD8;
+    --gold:#A9752B;
+    --gold-soft:#F3E6CD;
+    --gold-soft-line:#E2CB9C;
+    --plum:#6C5590;
+    --plum-soft:#EAE3F2;
+    --plum-soft-line:#D4C4E8;
+    --good:#3A7D53;
+    --good-soft:#E3F0E4;
+    --warn:#B14A2C;
+    --warn-soft:#F7E5DD;
+    --focus:#1F6F72;
+    --shadow:0 1px 2px rgba(33,26,18,0.06),0 6px 16px -8px rgba(33,26,18,0.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#161310;
+      --surface:#211C17;
+      --surface-2:#282219;
+      --ink:#F1E9DA;
+      --ink-dim:#B3A793;
+      --line:#3A3226;
+      --line-strong:#4A4030;
+      --accent:#5FBBBB;
+      --accent-ink:#0E1A1A;
+      --accent-soft:#1E3535;
+      --accent-soft-line:#2E4E4E;
+      --gold:#E0AC5C;
+      --gold-soft:#3B2E1A;
+      --gold-soft-line:#5A4526;
+      --plum:#B7A0DD;
+      --plum-soft:#2E2740;
+      --plum-soft-line:#453A5E;
+      --good:#7FCB93;
+      --good-soft:#1E3324;
+      --warn:#E28A66;
+      --warn-soft:#3C2419;
+      --focus:#5FBBBB;
+      --shadow:0 1px 2px rgba(0,0,0,0.3),0 8px 20px -8px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#161310;
+    --surface:#211C17;
+    --surface-2:#282219;
+    --ink:#F1E9DA;
+    --ink-dim:#B3A793;
+    --line:#3A3226;
+    --line-strong:#4A4030;
+    --accent:#5FBBBB;
+    --accent-ink:#0E1A1A;
+    --accent-soft:#1E3535;
+    --accent-soft-line:#2E4E4E;
+    --gold:#E0AC5C;
+    --gold-soft:#3B2E1A;
+    --gold-soft-line:#5A4526;
+    --plum:#B7A0DD;
+    --plum-soft:#2E2740;
+    --plum-soft-line:#453A5E;
+    --good:#7FCB93;
+    --good-soft:#1E3324;
+    --warn:#E28A66;
+    --warn-soft:#3C2419;
+    --focus:#5FBBBB;
+    --shadow:0 1px 2px rgba(0,0,0,0.3),0 8px 20px -8px rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Onest",system-ui,-apple-system,sans-serif;
+    line-height:1.45;
+  }
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  a{color:var(--accent);}
+  :focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px;}
+
+  .page{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 14px 48px;
+  }
+
+  /* ---------- Header ---------- */
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:14px 0 12px;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:10px;min-width:0;}
+  .brand-mark{
+    flex:none;
+    width:38px;height:38px;
+    border-radius:10px;
+    background:var(--accent);
+    color:var(--accent-ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"IBM Plex Mono",monospace;
+    font-weight:600;
+    font-size:15px;
+    box-shadow:var(--shadow);
+  }
+  .brand-text{min-width:0;}
+  .brand-text h1{
+    font-family:"Fraunces",Georgia,serif;
+    font-weight:600;
+    font-size:20px;
+    margin:0;
+    letter-spacing:0.2px;
+    text-wrap:balance;
+  }
+  .tagline{
+    margin:1px 0 0;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .topbar-actions{
+    flex:none;
+    display:flex;
+    align-items:center;
+    gap:7px;
+  }
+  #langSelect{
+    height:100%;
+    padding:9px 6px;
+    border-radius:10px;
+    border:1px solid var(--line-strong);
+    background:var(--surface);
+    color:var(--ink);
+    font:600 12.5px "IBM Plex Mono",monospace;
+    cursor:pointer;
+  }
+  .btn-filters{
+    flex:none;
+    display:flex;align-items:center;gap:6px;
+    background:var(--accent);
+    color:var(--accent-ink);
+    border:none;
+    border-radius:10px;
+    padding:9px 14px;
+    font:600 13.5px "Onest",sans-serif;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+  }
+  .btn-filters svg{width:16px;height:16px;flex:none;}
+  .filter-count{
+    background:var(--accent-ink);
+    color:var(--accent);
+    border-radius:999px;
+    min-width:18px;height:18px;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:10.5px;font-weight:700;
+    padding:0 4px;
+  }
+
+  /* ---------- Tabs ---------- */
+  .tabs{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+  }
+  .tab-btn{
+    flex:1 1 0;
+    text-align:center;
+    padding:10px 10px;
+    border-radius:10px;
+    border:1px solid var(--line-strong);
+    background:var(--surface);
+    color:var(--ink-dim);
+    font:600 13px "Onest",sans-serif;
+    cursor:pointer;
+  }
+  .tab-btn[aria-selected="true"]{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:var(--accent-ink);
+  }
+
+  /* ---------- Toolbar ---------- */
+  .toolbar{
+    display:flex;
+    gap:10px;
+    margin-top:12px;
+  }
+  .search-wrap{flex:1 1 auto;min-width:0;}
+  #searchInput{
+    width:100%;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid var(--line-strong);
+    background:var(--surface);
+    color:var(--ink);
+    font:14px "Onest",sans-serif;
+  }
+  #searchInput::placeholder{color:var(--ink-dim);}
+  .sort-wrap{flex:none;}
+  #sortSelect{
+    height:100%;
+    padding:10px 10px;
+    border-radius:10px;
+    border:1px solid var(--line-strong);
+    background:var(--surface);
+    color:var(--ink);
+    font:13.5px "Onest",sans-serif;
+    max-width:132px;
+  }
+
+  /* ---------- Filters panel ---------- */
+  .filters-panel{
+    margin-top:12px;
+    padding:14px 14px 6px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .filter-group{display:flex;flex-direction:column;gap:8px;}
+  .filter-label{
+    font-size:11.5px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-dim);
+  }
+  .filter-label span{
+    font-family:"IBM Plex Mono",monospace;
+    color:var(--ink);
+    text-transform:none;
+    letter-spacing:0;
+    font-weight:600;
+  }
+  .chip-row{display:flex;flex-wrap:wrap;gap:7px;}
+  .chip{
+    border:1px solid var(--line-strong);
+    background:var(--surface-2);
+    color:var(--ink);
+    border-radius:999px;
+    padding:6px 12px;
+    font-size:12.5px;
+    font-weight:500;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .chip[aria-pressed="true"]{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:var(--accent-ink);
+    font-weight:600;
+  }
+  input[type="range"]{
+    width:100%;
+    accent-color:var(--accent);
+    height:20px;
+  }
+  .calc-input-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .calc-input-row input[type="range"]{flex:1 1 auto;min-width:0;}
+  .calc-number{
+    flex:none;
+    width:108px;
+    padding:8px 10px;
+    border-radius:9px;
+    border:1px solid var(--line-strong);
+    background:var(--surface);
+    color:var(--ink);
+    font:600 13px "IBM Plex Mono",monospace;
+    text-align:right;
+  }
+  .calc-term-input{margin-top:2px;width:100px;}
+  .calc-sort-row{justify-content:flex-end;}
+  .btn-reset{
+    align-self:flex-start;
+    background:none;
+    border:1px solid var(--line-strong);
+    color:var(--ink-dim);
+    border-radius:9px;
+    padding:8px 13px;
+    font:600 12.5px "Onest",sans-serif;
+    cursor:pointer;
+    margin-bottom:10px;
+  }
+  .btn-reset:hover{color:var(--warn);border-color:var(--warn);}
+
+  /* ---------- Results ---------- */
+  .result-count{
+    margin:14px 2px 10px;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    font-family:"IBM Plex Mono",monospace;
+  }
+  .result-count b{color:var(--ink);}
+
+  .cards-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:15px 16px 14px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+  }
+  .bank-name{
+    font-weight:700;
+    font-size:14.5px;
+    letter-spacing:0.1px;
+  }
+  .badge{
+    flex:none;
+    font-size:10.5px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:4px 9px;
+    border-radius:999px;
+    border:1px solid transparent;
+  }
+  .badge-consumer{background:var(--accent-soft);color:var(--accent);border-color:var(--accent-soft-line);}
+  .badge-mortgage{background:var(--gold-soft);color:var(--gold);border-color:var(--gold-soft-line);}
+  .badge-card{background:var(--plum-soft);color:var(--plum);border-color:var(--plum-soft-line);}
+
+  .product-name{
+    margin:0;
+    font-size:15.5px;
+    font-weight:600;
+    text-wrap:balance;
+  }
+
+  .rate-block{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    flex-wrap:wrap;
+    padding-top:2px;
+  }
+  .rate-value{
+    font-family:"IBM Plex Mono",monospace;
+    font-weight:600;
+    font-size:26px;
+    font-variant-numeric:tabular-nums;
+    color:var(--ink);
+  }
+  .rate-value.unknown{font-size:14px;color:var(--ink-dim);font-family:"Onest",sans-serif;font-weight:600;}
+  .rate-unit{font-size:15px;color:var(--ink-dim);margin-left:1px;}
+  .rate-meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+  .tag{
+    font-size:11px;
+    font-weight:600;
+    padding:3px 8px;
+    border-radius:7px;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    color:var(--ink-dim);
+    white-space:nowrap;
+  }
+
+  .meta-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin:0;
+    padding:10px 0;
+    border-top:1px dashed var(--line);
+    border-bottom:1px dashed var(--line);
+  }
+  .meta-grid dt{
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--ink-dim);
+    margin:0 0 2px;
+  }
+  .meta-grid dd{
+    margin:0;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12.5px;
+    font-weight:600;
+    font-variant-numeric:tabular-nums;
+    line-height:1.3;
+  }
+
+  .conditions{
+    margin:0;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    line-height:1.5;
+  }
+
+  .source-link{
+    align-self:flex-start;
+    font-size:12.5px;
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px solid var(--accent-soft-line);
+  }
+  .source-link:hover{border-bottom-color:var(--accent);}
+
+  .payment-value{
+    font-family:"IBM Plex Mono",monospace;
+    font-weight:600;
+    font-size:22px;
+    font-variant-numeric:tabular-nums;
+    color:var(--ink);
+  }
+  .payment-value.unknown{font-size:14px;color:var(--ink-dim);font-family:"Onest",sans-serif;font-weight:600;}
+  .payment-unit{font-size:13px;color:var(--ink-dim);margin-left:2px;}
+
+  .calc-disclaimer{
+    margin:16px 2px 0;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    line-height:1.6;
+    max-width:70ch;
+  }
+
+  .empty-state{
+    margin:32px 8px;
+    padding:28px 20px;
+    text-align:center;
+    color:var(--ink-dim);
+    background:var(--surface);
+    border:1px dashed var(--line-strong);
+    border-radius:14px;
+    font-size:13.5px;
+  }
+
+  /* ---------- Analytics ---------- */
+  .analytics-head{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    margin-top:14px;
+  }
+  .seg-toggle{display:flex;gap:7px;}
+  .analytics-hint{
+    margin:12px 2px 14px;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    line-height:1.5;
+  }
+  .chart-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 16px 14px;
+    box-shadow:var(--shadow);
+  }
+  .chart-svg{display:block;overflow:visible;width:100%;}
+  .chart-label{font-size:11.5px;fill:var(--ink-dim);font-family:"Onest",sans-serif;}
+  .chart-value{font-size:11.5px;font-weight:600;fill:var(--ink);font-family:"IBM Plex Mono",monospace;}
+  .chart-value-sm{font-size:10px;fill:var(--ink-dim);font-family:"IBM Plex Mono",monospace;}
+  .chart-value-strong{fill:var(--ink);font-weight:600;}
+  .bank-bar{cursor:pointer;}
+  .bank-bar rect{transition:opacity .12s ease;}
+  .bank-bar:hover rect, .bank-bar:focus rect{opacity:.78;}
+  .bank-bar:focus{outline:none;}
+  .bank-bar.is-selected rect{stroke:var(--ink);stroke-width:1.5;}
+  .trend-panel{
+    margin-top:14px;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px 12px;
+  }
+  .trend-panel-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .trend-panel-title{font-weight:600;font-size:14px;margin:0;}
+  .trend-panel-sub{margin:2px 0 0;font-size:11.5px;color:var(--ink-dim);}
+  .trend-close{
+    flex:none;
+    background:none;
+    border:1px solid var(--line-strong);
+    color:var(--ink-dim);
+    border-radius:8px;
+    width:26px;height:26px;
+    cursor:pointer;
+    font-size:14px;
+    line-height:1;
+  }
+  .trend-close:hover{color:var(--warn);border-color:var(--warn);}
+  .analytics-note{
+    margin:14px 2px 0;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    line-height:1.6;
+    max-width:70ch;
+  }
+
+  .page-footer{
+    margin-top:30px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+  }
+  .page-footer p{
+    margin:0;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    line-height:1.6;
+    max-width:70ch;
+  }
+
+  /* ---------- Desktop ---------- */
+  @media (min-width:760px){
+    .page{padding:0 28px 60px;}
+    .topbar{padding:20px 0 16px;}
+    .brand-mark{width:44px;height:44px;font-size:17px;border-radius:12px;}
+    .brand-text h1{font-size:24px;}
+    .tagline{font-size:12.5px;white-space:normal;}
+    .btn-filters{display:none;}
+    .tabs{max-width:560px;}
+    .toolbar{margin-top:16px;}
+    #sortSelect{max-width:none;}
+    .filters-panel{
+      margin-top:14px;
+      flex-direction:row;
+      flex-wrap:wrap;
+      align-items:flex-end;
+      padding:16px 18px 14px;
+    }
+    .filter-group{flex:1 1 200px;}
+    .filter-group.range-group{min-width:190px;}
+    .btn-reset{margin-bottom:0;height:34px;}
+    .cards-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+  }
+
+  @media (min-width:1040px){
+    .cards-grid{grid-template-columns:repeat(3,1fr);}
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    .card{transition:box-shadow .15s ease;}
+    .card:hover{box-shadow:0 2px 4px rgba(33,26,18,0.08),0 10px 22px -8px rgba(33,26,18,0.24);}
+  }
+</style>
+
+<div class="page">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">%</span>
+      <div class="brand-text">
+        <h1>rata.md</h1>
+        <p class="tagline" id="taglineText">Кредиты 10 банков Молдовы — на 12.10.2026</p>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <div>
+        <label for="langSelect" class="sr-only">Language / Язык / Limbă</label>
+        <select id="langSelect">
+          <option value="ro">RO</option>
+          <option value="ru">RU</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+      <button id="filtersToggle" class="btn-filters" type="button" aria-expanded="false" aria-controls="filtersPanel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="9" cy="7" r="1.6" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="1.6" fill="currentColor" stroke="none"/></svg>
+        <span id="filtersBtnLabel">Фильтры</span>
+        <span class="filter-count" id="filterCount" hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button type="button" class="tab-btn" id="tabBrowseBtn" role="tab" aria-selected="true" aria-controls="browseSection" data-tab="browse">Все предложения</button>
+    <button type="button" class="tab-btn" id="tabCalcBtn" role="tab" aria-selected="false" aria-controls="calcSection" data-tab="calc">Подбор по сумме</button>
+    <button type="button" class="tab-btn" id="tabAnalyticsBtn" role="tab" aria-selected="false" aria-controls="analyticsSection" data-tab="analytics">Аналитика</button>
+  </div>
+
+  <section id="browseSection">
+
+    <div class="toolbar">
+      <div class="search-wrap">
+        <label for="searchInput" class="sr-only" id="searchLabel">Поиск по банку, продукту или условиям</label>
+        <input id="searchInput" type="search" placeholder="Поиск: банк, продукт, условие…" autocomplete="off">
+      </div>
+      <div class="sort-wrap">
+        <label for="sortSelect" class="sr-only" id="sortLabel">Сортировка</label>
+        <select id="sortSelect">
+          <option value="rateAsc">Ставка ↑</option>
+          <option value="rateDesc">Ставка ↓</option>
+          <option value="aprAsc">ГПС ↑</option>
+          <option value="amountDesc">Сумма ↓</option>
+          <option value="termDesc">Срок ↓</option>
+          <option value="bank">Банк А→Я</option>
+        </select>
+      </div>
+    </div>
+
+    <section id="filtersPanel" class="filters-panel" hidden>
+      <div class="filter-group">
+        <span class="filter-label" id="categoryLabel">Категория</span>
+        <div class="chip-row" id="categoryChips"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label" id="bankLabel">Банк</span>
+        <div class="chip-row" id="bankChips"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label" id="rateTypeLabel">Тип ставки</span>
+        <div class="chip-row" id="rateTypeChips"></div>
+      </div>
+      <div class="filter-group range-group">
+        <label class="filter-label" for="rateRange"><span id="rateRangeLabel">Ставка не выше</span> <span id="rateRangeVal">—</span></label>
+        <input type="range" id="rateRange" min="0" max="35" step="0.5" value="35">
+      </div>
+      <div class="filter-group range-group">
+        <label class="filter-label" for="amountRange"><span id="amountRangeLabel">Нужна сумма от</span> <span id="amountRangeVal">—</span></label>
+        <input type="range" id="amountRange" min="0" max="7000000" step="25000" value="0">
+      </div>
+      <div class="filter-group range-group">
+        <label class="filter-label" for="termRange"><span id="termRangeLabel">Нужен срок от</span> <span id="termRangeVal">—</span></label>
+        <input type="range" id="termRange" min="0" max="360" step="6" value="0">
+      </div>
+      <button id="resetBtn" class="btn-reset" type="button">Сбросить всё</button>
+    </section>
+
+    <p class="result-count" id="resultCount"></p>
+
+    <main class="cards-grid" id="cardsGrid" aria-live="polite"></main>
+    <p class="empty-state" id="emptyState" hidden>Совпадений не найдено. Попробуйте снять часть фильтров или ослабить требования к ставке, сумме или сроку.</p>
+
+  </section>
+
+  <section id="calcSection" hidden>
+
+    <section class="filters-panel">
+      <div class="filter-group">
+        <span class="filter-label" id="calcCategoryLabel">Категория</span>
+        <div class="chip-row" id="calcCategoryChips"></div>
+      </div>
+      <div class="filter-group range-group">
+        <label class="filter-label" for="calcAmountInput" id="calcAmountLabel">Сумма кредита</label>
+        <div class="calc-input-row">
+          <input type="range" id="calcAmount" min="3000" max="7000000" step="1000" value="100000">
+          <input type="number" id="calcAmountInput" class="calc-number" min="3000" max="7000000" step="1000" value="100000" inputmode="numeric">
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label" id="calcTermLabel">Срок</span>
+        <div class="chip-row" id="calcTermChips"></div>
+        <input type="number" id="calcTermInput" class="calc-number calc-term-input" min="1" max="360" step="1" value="60" inputmode="numeric">
+      </div>
+    </section>
+
+    <div class="toolbar calc-sort-row">
+      <div class="sort-wrap">
+        <label for="calcSortSelect" class="sr-only" id="calcSortLabel">Сортировка</label>
+        <select id="calcSortSelect">
+          <option value="paymentAsc">Платёж ↑</option>
+          <option value="paymentDesc">Платёж ↓</option>
+          <option value="rateAsc">Ставка ↑</option>
+          <option value="aprAsc">ГПС ↑</option>
+          <option value="bank">Банк А→Я</option>
+        </select>
+      </div>
+    </div>
+
+    <p class="result-count" id="calcResultCount"></p>
+
+    <main class="cards-grid" id="calcResultsGrid" aria-live="polite"></main>
+    <p class="empty-state" id="calcEmptyState" hidden>Нет предложений по заданным параметрам. Попробуйте изменить сумму, срок или категорию.</p>
+
+    <p class="calc-disclaimer" id="calcDisclaimer">Расчёт ориентировочный: использует минимальную ставку, заявленную банком для этого продукта. Итоговая ставка и одобренная сумма определяются индивидуально после оценки платёжеспособности.</p>
+
+  </section>
+
+  <section id="analyticsSection" hidden>
+
+    <div class="analytics-head">
+      <span class="filter-label" id="analyticsCategoryLabel">Категория</span>
+      <div class="chip-row seg-toggle" id="analyticsCategoryChips"></div>
+    </div>
+    <p class="analytics-hint" id="analyticsHint">Самая низкая объявленная ставка «от» по каждому банку. Нажмите на банк, чтобы увидеть, как менялась его ставка по неделям.</p>
+
+    <div class="chart-card">
+      <div id="analyticsChart"></div>
+    </div>
+
+    <div class="trend-panel" id="trendPanel" hidden>
+      <div class="trend-panel-head">
+        <div>
+          <p class="trend-panel-title" id="trendTitle"></p>
+          <p class="trend-panel-sub" id="trendSub"></p>
+        </div>
+        <button type="button" class="trend-close" id="trendClose" aria-label="Закрыть">✕</button>
+      </div>
+      <div id="trendChart"></div>
+    </div>
+
+    <p class="analytics-note" id="analyticsNote">История копится с 12.10.2026 — раз в неделю, при каждом обновлении страницы. Банки без опубликованной ставки по категории на графике не показаны.</p>
+
+  </section>
+
+  <footer class="page-footer">
+    <p id="footerText">Данные собраны с официальных сайтов 10 банков, лицензированных Нацбанком Молдовы, по состоянию на 12 октября 2026&nbsp;года. Указаны стартовые ставки «от» — фактическая одобренная ставка определяется индивидуально после оценки платёжеспособности. Прочерк в поле «ставка» означает, что банк не публикует точное значение в открытом доступе. Страница не является финансовой консультацией — перед решением сверьтесь с банком.</p>
+  </footer>
+
+</div>
+
+<script type="application/json" id="offers-data">[{"bank": "maib","category": "consumer","product": {"ru": "Espresso (без залога)","ro": "Espresso (fără gaj)","en": "Espresso (unsecured)"},"currency": "MDL","minAmount": 5000,"maxAmount": 400000,"minTerm": 12,"maxTerm": 60,"rateType": "fixed","rateMin": 9.6,"rateMax": null,"aprMin": 10.03,"aprMax": null,"conditions": {"ru": "Без залога, только удостоверение личности, деньги на карту maib, одобрение ~30 мин","ro": "Fără gaj, doar buletinul de identitate, banii pe cardul maib, aprobare ~30 min","en": "No collateral, ID card only, funds to maib card, approval in ~30 min"},"url": "https://www.maib.md/en/persoane-fizice/credite/Credit-Espresso"},{"bank": "maib","category": "consumer","product": {"ru": "Кредит с залогом недвижимости","ro": "Credit cu gaj imobiliar","en": "Loan secured by real estate"},"currency": "MDL","minAmount": 100000,"maxAmount": 2500000,"minTerm": 12,"maxTerm": 60,"rateType": "floating","rateMin": 9.24,"rateMax": null,"aprMin": 9.63,"aprMax": null,"conditions": {"ru": "Залог — жилая недвижимость, возраст от 20 лет","ro": "Gaj — imobil locativ, vârsta de la 20 ani","en": "Collateral — residential property, age from 20 years"},"url": "https://www.maib.md/en/persoane-fizice/credite/credit-de-consum-cu-gaj"},{"bank": "maib","category": "consumer","product": {"ru": "GEFF (энергоэффективность)","ro": "GEFF (eficiență energetică)","en": "GEFF (energy efficiency)"},"currency": "MDL","minAmount": 5000,"maxAmount": 1900000,"minTerm": 12,"maxTerm": 180,"rateType": "mixed","rateMin": 10.3,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "На утепление, отопление, ВИЭ; возможен грант после проверки проекта","ro": "Pentru izolare termică, încălzire, surse regenerabile; grant posibil după verificarea proiectului","en": "For insulation, heating, renewable energy; grant possible after project verification"},"url": "https://www.maib.md/en/persoane-fizice/credite/credit-de-consum-geff"},{"bank": "maib","category": "consumer","product": {"ru": "Рефинансирование потребкредитов","ro": "Refinanțarea creditelor de consum","en": "Consumer loan refinancing"},"currency": "MDL","minAmount": 5000,"maxAmount": 400000,"minTerm": 12,"maxTerm": 60,"rateType": "fixed","rateMin": 9.6,"rateMax": null,"aprMin": 9.7,"aprMax": null,"conditions": {"ru": "Без залога недвижимости, объединяет кредиты из maib и других банков/МФО","ro": "Fără gaj imobiliar, combină credite de la maib și de la alte bănci/IFN","en": "No real-estate collateral, consolidates loans from maib and other banks/microfinance institutions"},"url": "https://www.maib.md/en/persoane-fizice/credite/Credite-refinance"},{"bank": "maib","category": "consumer","product": {"ru": "Espresso онлайн (maibank)","ro": "Espresso online (maibank)","en": "Espresso online (maibank)"},"currency": "MDL","minAmount": 5000,"maxAmount": 400000,"minTerm": 12,"maxTerm": 60,"rateType": "fixed","rateMin": 9.6,"rateMax": null,"aprMin": 10.03,"aprMax": null,"conditions": {"ru": "Полностью через приложение maibank","ro": "Integral prin aplicația maibank","en": "Entirely through the maibank app"},"url": "https://www.maib.md/en/persoane-fizice/credite-online"},{"bank": "maib","category": "consumer","product": {"ru": "Рассрочка онлайн на покупки","ro": "Rate online la cumpărături","en": "Online installments for purchases"},"currency": "MDL","minAmount": null,"maxAmount": 100000,"minTerm": 3,"maxTerm": 12,"rateType": "fixed","rateMin": 9.4,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "До 100 000 MDL за транзакцию, дебетовая карта maibank, рассрочка 3/6/9/12 мес.","ro": "Până la 100 000 MDL per tranzacție, card de debit maibank, rate pe 3/6/9/12 luni","en": "Up to 100,000 MDL per transaction, maibank debit card, installments over 3/6/9/12 months"},"url": "https://www.maib.md/en/persoane-fizice/credite-online"},{"bank": "maib","category": "mortgage","product": {"ru": "Ипотека стандартная","ro": "Credit ipotecar standard","en": "Standard mortgage"},"currency": "MDL/EUR/USD","minAmount": 1700000,"maxAmount": 7000000,"minTerm": null,"maxTerm": 360,"rateType": "floating","rateMin": 8.25,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Валюта MDL, EUR или USD","ro": "Valuta MDL, EUR sau USD","en": "Currency MDL, EUR or USD"},"url": "https://www.maib.md/en/persoane-fizice/ipoteca"},{"bank": "maib","category": "mortgage","product": {"ru": "Ипотека на жильё за рубежом","ro": "Credit ipotecar pentru locuință peste hotare","en": "Mortgage for housing abroad"},"currency": "MDL","minAmount": 1700000,"maxAmount": 7000000,"minTerm": null,"maxTerm": 360,"rateType": "floating","rateMin": 8.25,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Финансирование в MDL, залог оформляется в Молдове","ro": "Finanțare în MDL, gajul se înregistrează în Moldova","en": "Financing in MDL, collateral registered in Moldova"},"url": "https://www.maib.md/en/persoane-fizice/ipoteca"},{"bank": "maib","category": "mortgage","product": {"ru": "Ипотека с фиксированной ставкой","ro": "Credit ipotecar cu rată fixă","en": "Fixed-rate mortgage"},"currency": "MDL","minAmount": null,"maxAmount": 7000000,"minTerm": null,"maxTerm": 360,"rateType": "fixed","rateMin": 8.25,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Только в MDL","ro": "Doar în MDL","en": "MDL only"},"url": "https://www.maib.md/en/persoane-fizice/ipoteca"},{"bank": "maib","category": "mortgage","product": {"ru": "Prima Casă Plus","ro": "Prima Casă Plus","en": "Prima Casă Plus"},"currency": "MDL","minAmount": null,"maxAmount": 2500000,"minTerm": null,"maxTerm": 360,"rateType": "floating","rateMin": 8.66,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Госпрограмма для первого жилья","ro": "Program de stat pentru prima locuință","en": "State program for first home"},"url": "https://www.maib.md/en/persoane-fizice/ipoteca"},{"bank": "maib","category": "mortgage","product": {"ru": "Ипотека на строящееся жильё","ro": "Credit ipotecar pentru locuință în construcție","en": "Mortgage for housing under construction"},"currency": "MDL","minAmount": 1700000,"maxAmount": 7000000,"minTerm": null,"maxTerm": 360,"rateType": "floating","rateMin": 8.25,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://www.maib.md/en/persoane-fizice/ipoteca"},{"bank": "maib","category": "mortgage","product": {"ru": "Рефинансирование ипотеки","ro": "Refinanțarea creditului ipotecar","en": "Mortgage refinancing"},"currency": "MDL","minAmount": 1700000,"maxAmount": 7000000,"minTerm": null,"maxTerm": 360,"rateType": "floating","rateMin": 8.25,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://www.maib.md/en/persoane-fizice/ipoteca"},{"bank": "maib","category": "mortgage","product": {"ru": "Рефинансирование Prima Casă","ro": "Refinanțarea Prima Casă","en": "Prima Casă refinancing"},"currency": "MDL","minAmount": null,"maxAmount": 2500000,"minTerm": null,"maxTerm": 360,"rateType": "floating","rateMin": 8.57,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://www.maib.md/en/persoane-fizice/ipoteca"},{"bank": "maib","category": "card","product": {"ru": "Gama Universal","ro": "Gama Universal","en": "Gama Universal"},"currency": "MDL","minAmount": null,"maxAmount": 350000,"minTerm": null,"maxTerm": null,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Кэшбэк до 15%, льготный период до 60 дней, платёж мин. 5% от долга + проценты; единая ставка не публикуется","ro": "Cashback până la 15%, perioadă grație până la 60 zile, plată min. 5% din sold + dobândă; rata unică nu este publicată","en": "Cashback up to 15%, grace period up to 60 days, minimum payment 5% of balance + interest; single rate not published"},"url": "https://www.maib.md/en/persoane-fizice/carduri-de-credit/gama-universal-credit"},{"bank": "maib","category": "card","product": {"ru": "Gama Premium","ro": "Gama Premium","en": "Gama Premium"},"currency": "MDL/EUR","minAmount": null,"maxAmount": 350000,"minTerm": null,"maxTerm": null,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Кэшбэк до 15%, бесплатное снятие наличных за границей; ставка не публикуется","ro": "Cashback până la 15%, retrageri numerar gratuite peste hotare; rata nu este publicată","en": "Cashback up to 15%, free cash withdrawals abroad; rate not published"},"url": "https://www.maib.md/en/persoane-fizice/carduri-de-credit"},{"bank": "maib","category": "card","product": {"ru": "maib Liber (рассрочка 0%)","ro": "maib Liber (rate 0%)","en": "maib Liber (0% installments)"},"currency": "MDL","minAmount": null,"maxAmount": 50000,"minTerm": null,"maxTerm": 12,"rateType": "fixed","rateMin": 0,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Рассрочка без процентов у партнёров, до 12 месяцев","ro": "Rate fără dobândă la parteneri, până la 12 luni","en": "Interest-free installments with partners, up to 12 months"},"url": "https://www.maib.md/en/persoane-fizice/carduri-de-credit"},{"bank": "Victoriabank","category": "consumer","product": {"ru": "Кредит потребительский, фикс. ставка","ro": "Credit de consum, rată fixă","en": "Consumer loan, fixed rate"},"currency": "MDL","minAmount": null,"maxAmount": 400000,"minTerm": null,"maxTerm": 60,"rateType": "fixed","rateMin": 10.25,"rateMax": 11.25,"aprMin": 10.74,"aprMax": 11.85,"conditions": {"ru": "Без залога; ставка по тарифной группе клиента: 10,25% (IT/медицина/образование/крупные компании), 10,75% (компании 101–500 чел.), 11,25% (прочие)","ro": "Fără gaj; rata după grupul tarifar al clientului: 10,25% (IT/medicină/educație/companii mari), 10,75% (companii 101–500 angajați), 11,25% (ceilalți)","en": "Unsecured; rate by client tariff group: 10.25% (IT/healthcare/education/large employers), 10.75% (companies with 101–500 staff), 11.25% (others)"},"url": "https://www.victoriabank.md/credite/consum"},{"bank": "Victoriabank","category": "consumer","product": {"ru": "Кредит потребительский, плав. ставка","ro": "Credit de consum, rată flotantă","en": "Consumer loan, floating rate"},"currency": "MDL","minAmount": null,"maxAmount": 400000,"minTerm": null,"maxTerm": 60,"rateType": "floating","rateMin": 11.16,"rateMax": 12.16,"aprMin": 11.74,"aprMax": 12.86,"conditions": {"ru": "Без залога для сумм до 300 000 MDL; ставка по тарифной группе клиента","ro": "Fără gaj pentru sume până la 300 000 MDL; rata după grupul tarifar al clientului","en": "Unsecured for amounts up to 300,000 MDL; rate by client tariff group"},"url": "https://www.victoriabank.md/credite/consum-rata-flotanta"},{"bank": "Victoriabank","category": "consumer","product": {"ru": "Creditul Garantat","ro": "Creditul Garantat","en": "Creditul Garantat"},"currency": "MDL","minAmount": null,"maxAmount": 400000,"minTerm": null,"maxTerm": 60,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Ставка не опубликована на доступной странице","ro": "Rata nu este publicată pe pagina disponibilă","en": "Rate not published on the available page"},"url": "https://www.victoriabank.md/credite/garantat"},{"bank": "Victoriabank","category": "consumer","product": {"ru": "Credit Expres Online","ro": "Credit Expres Online","en": "Credit Expres Online"},"currency": "MDL","minAmount": null,"maxAmount": 400000,"minTerm": null,"maxTerm": 60,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Ставка не опубликована на доступной странице","ro": "Rata nu este publicată pe pagina disponibilă","en": "Rate not published on the available page"},"url": "https://www.victoriabank.md/credite/expres-online"},{"bank": "Victoriabank","category": "mortgage","product": {"ru": "Ипотека, комбинированная ставка","ro": "Credit ipotecar, rată combinată","en": "Mortgage, combined rate"},"currency": "MDL","minAmount": null,"maxAmount": null,"minTerm": null,"maxTerm": 360,"rateType": "mixed","rateMin": 8.25,"rateMax": 9.66,"aprMin": 9.01,"aprMax": 9.97,"conditions": {"ru": "Фикс. 8,25% первые 12 мес., далее 8,66–9,66% плавающая по тарифной группе; финансирование до 100%, годовая комиссия 500 MDL","ro": "Fix 8,25% primele 12 luni, apoi 8,66–9,66% flotantă după grupul tarifar; finanțare până la 100%, comision anual 500 MDL","en": "Fixed 8.25% for the first 12 months, then 8.66–9.66% floating by tariff group; financing up to 100%, annual fee 500 MDL"},"url": "https://www.victoriabank.md/credite/imobiliar"},{"bank": "Victoriabank","category": "mortgage","product": {"ru": "Ипотека, плавающая ставка","ro": "Credit ipotecar, rată flotantă","en": "Mortgage, floating rate"},"currency": "MDL","minAmount": null,"maxAmount": null,"minTerm": null,"maxTerm": 360,"rateType": "floating","rateMin": 8.66,"rateMax": 9.66,"aprMin": 9.06,"aprMax": 10.15,"conditions": {"ru": "Ставка по тарифной группе клиента, фиксируется на весь срок кредита; финансирование до 100%","ro": "Rata după grupul tarifar al clientului, fixă pe toată perioada creditului; finanțare până la 100%","en": "Rate by client tariff group, fixed for the entire loan term; financing up to 100%"},"url": "https://www.victoriabank.md/credite/imobiliar-rata-flotanta"},{"bank": "Victoriabank","category": "mortgage","product": {"ru": "Ипотека на жильё в Румынии","ro": "Credit ipotecar pentru locuință în România","en": "Mortgage for housing in Romania"},"currency": "MDL","minAmount": null,"maxAmount": 2500000,"minTerm": null,"maxTerm": 360,"rateType": "mixed","rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://www.victoriabank.md/credite/imobiliar-romania"},{"bank": "Victoriabank","category": "mortgage","product": {"ru": "Prima Casă Plus","ro": "Prima Casă Plus","en": "Prima Casă Plus"},"currency": "MDL","minAmount": null,"maxAmount": 2500000,"minTerm": null,"maxTerm": 360,"rateType": "floating","rateMin": 8.66,"rateMax": null,"aprMin": 9.13,"aprMax": null,"conditions": {"ru": "Госпрограмма; финансирование до 100% стоимости жилья, госгарантия 0,4% годовых","ro": "Program de stat; finanțare până la 100% din prețul locuinței, garanție de stat 0,4% anual","en": "State program; financing up to 100% of the property price, 0.4% annual state guarantee fee"},"url": "https://www.victoriabank.md/credite/prima-casa-plus"},{"bank": "Victoriabank","category": "card","product": {"ru": "STAR Card (рассрочка у партнёров)","ro": "STAR Card (rate la parteneri)","en": "STAR Card (installments with partners)"},"currency": "MDL","minAmount": null,"maxAmount": 150000,"minTerm": null,"maxTerm": 72,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Карта покупок в рассрочку у партнёров; срок карты 6 лет","ro": "Card pentru cumpărături în rate la parteneri; valabilitatea cardului 6 ani","en": "Card for installment purchases with partners; card validity 6 years"},"url": "https://www.victoriabank.md/carduri/star-card"},{"bank": "Victoriabank","category": "card","product": {"ru": "STAR Card Platinum","ro": "STAR Card Platinum","en": "STAR Card Platinum"},"currency": "MDL","minAmount": null,"maxAmount": 1000000,"minTerm": null,"maxTerm": 72,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://www.victoriabank.md/carduri/star-card-platinum"},{"bank": "Victoriabank","category": "card","product": {"ru": "Overdraft","ro": "Overdraft","en": "Overdraft"},"currency": "MDL","minAmount": null,"maxAmount": 200000,"minTerm": null,"maxTerm": 72,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://www.victoriabank.md/carduri/overdraft"},{"bank": "Moldindconbank","category": "consumer","product": {"ru": "Acum loan","ro": "Acum loan","en": "Acum loan"},"currency": "MDL","minAmount": null,"maxAmount": 50000,"minTerm": null,"maxTerm": 60,"rateType": "fixed","rateMin": 27,"rateMax": null,"aprMin": 30.57,"aprMax": null,"conditions": {"ru": "Экспресс-кредит, высокая ставка","ro": "Credit expres, rată ridicată","en": "Express loan, high rate"},"url": "https://micb.md/en/credite"},{"bank": "Moldindconbank","category": "consumer","product": {"ru": "Smart Loan (рассрочка на карту)","ro": "Smart Loan (rate pe card)","en": "Smart Loan (installments on card)"},"currency": "MDL","minAmount": null,"maxAmount": 200000,"minTerm": null,"maxTerm": 24,"rateType": "floating","rateMin": 0,"rateMax": null,"aprMin": 0,"aprMax": 16.91,"conditions": {"ru": "0% возможно при соблюдении условий; комиссии 0%","ro": "0% posibil în anumite condiții; comisioane 0%","en": "0% possible under certain conditions; 0% fees"},"url": "https://micb.md/en/credite"},{"bank": "Moldindconbank","category": "consumer","product": {"ru": "Credit Online","ro": "Credit Online","en": "Credit Online"},"currency": "MDL","minAmount": null,"maxAmount": 200000,"minTerm": null,"maxTerm": 60,"rateType": "fixed","rateMin": 9.1,"rateMax": null,"aprMin": 9.49,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://micb.md/en/credite"},{"bank": "Moldindconbank","category": "consumer","product": {"ru": "Smart Credit Prim","ro": "Smart Credit Prim","en": "Smart Credit Prim"},"currency": "MDL","minAmount": null,"maxAmount": 50000,"minTerm": null,"maxTerm": 48,"rateType": "fixed","rateMin": 0,"rateMax": null,"aprMin": 0,"aprMax": 22.12,"conditions": {"ru": "Частично 0%, разовая комиссия 0%","ro": "Parțial 0%, comision unic 0%","en": "Partially 0%, one-time fee 0%"},"url": "https://micb.md/en/credite"},{"bank": "Moldindconbank","category": "consumer","product": {"ru": "Personal loan (залог недвиж./авто)","ro": "Personal loan (gaj imobil/auto)","en": "Personal loan (real estate/car collateral)"},"currency": "MDL","minAmount": null,"maxAmount": 2500000,"minTerm": null,"maxTerm": 60,"rateType": "mixed","rateMin": 9,"rateMax": null,"aprMin": 9.38,"aprMax": null,"conditions": {"ru": "9,3% preferred / 9,9% standard / 9% рефинансирование","ro": "9,3% preferred / 9,9% standard / 9% refinanțare","en": "9.3% preferred / 9.9% standard / 9% refinancing"},"url": "https://micb.md/en/credits/mortgage-loan/"},{"bank": "Moldindconbank","category": "consumer","product": {"ru": "SmartAuto Loan","ro": "SmartAuto Loan","en": "SmartAuto Loan"},"currency": "MDL","minAmount": null,"maxAmount": 400000,"minTerm": null,"maxTerm": 60,"rateType": "fixed","rateMin": 9,"rateMax": null,"aprMin": 9.38,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://micb.md/en/credite"},{"bank": "Moldindconbank","category": "mortgage","product": {"ru": "Investment property loan","ro": "Investment property loan","en": "Investment property loan"},"currency": "MDL","minAmount": null,"maxAmount": null,"minTerm": null,"maxTerm": 360,"rateType": "mixed","rateMin": 7.4,"rateMax": 9.0,"aprMin": 7.65,"aprMax": 9.37,"conditions": {"ru": "Фикс. до 31.12.2026, потом плавающая; 7,4% для суммы > 1,7 млн, 7,7–8,5% preferred, 8,8–9% standard","ro": "Fix până la 31.12.2026, apoi flotantă; 7,4% pentru suma > 1,7 mil., 7,7–8,5% preferred, 8,8–9% standard","en": "Fixed until 31.12.2026, then floating; 7.4% for amounts > 1.7M, 7.7–8.5% preferred, 8.8–9% standard"},"url": "https://micb.md/en/credits/mortgage-loan/"},{"bank": "Moldindconbank","category": "mortgage","product": {"ru": "Rental/non-rental","ro": "Rental/non-rental","en": "Rental/non-rental"},"currency": "MDL","minAmount": null,"maxAmount": null,"minTerm": null,"maxTerm": 360,"rateType": "mixed","rateMin": 7.9,"rateMax": null,"aprMin": 8.19,"aprMax": null,"conditions": {"ru": "Срок 360/120 месяцев","ro": "Termen 360/120 luni","en": "Term 360/120 months"},"url": "https://micb.md/en/credits/mortgage-loan/"},{"bank": "Moldindconbank","category": "mortgage","product": {"ru": "First Home Plus (Prima Casă)","ro": "First Home Plus (Prima Casă)","en": "First Home Plus (Prima Casă)"},"currency": "MDL","minAmount": null,"maxAmount": 2500000,"minTerm": null,"maxTerm": 360,"rateType": "floating","rateMin": 8.66,"rateMax": null,"aprMin": 9.35,"aprMax": null,"conditions": {"ru": "Госгарантия, ежегодная комиссия 0,4%","ro": "Garanție de stat, comision anual 0,4%","en": "State guarantee, annual fee 0.4%"},"url": "https://micb.md/en/credits/mortgage-loan/"},{"bank": "Moldindconbank","category": "card","product": {"ru": "Gold credit card","ro": "Gold credit card","en": "Gold credit card"},"currency": "MDL","minAmount": null,"maxAmount": 400000,"minTerm": null,"maxTerm": 60,"rateType": "fixed","rateMin": 15,"rateMax": null,"aprMin": 15.29,"aprMax": null,"conditions": {"ru": "Льготный период 60 дней","ro": "Perioadă de grație 60 zile","en": "Grace period 60 days"},"url": "https://micb.md/en/carduri-de-credit/"},{"bank": "Moldindconbank","category": "card","product": {"ru": "Acum credit card","ro": "Acum credit card","en": "Acum credit card"},"currency": "MDL","minAmount": null,"maxAmount": 20000,"minTerm": null,"maxTerm": 60,"rateType": "fixed","rateMin": 32,"rateMax": 35,"aprMin": null,"aprMax": null,"conditions": {"ru": "Льготный период 60 дней","ro": "Perioadă de grație 60 zile","en": "Grace period 60 days"},"url": "https://micb.md/en/carduri-de-credit/"},{"bank": "OTP Bank","category": "consumer","product": {"ru": "Потреб. кредит без залога (плав.)","ro": "Credit de consum fără gaj (rată flotantă)","en": "Unsecured consumer loan (floating rate)"},"currency": "MDL","minAmount": 2000,"maxAmount": 400000,"minTerm": 6,"maxTerm": 60,"rateType": "floating","rateMin": 8.8,"rateMax": 28.0,"aprMin": 9.07,"aprMax": 31.89,"conditions": {"ru": "До 600 000 MDL на семью; ставка зависит от категории клиента (I–IX)","ro": "Până la 600 000 MDL per familie; rata depinde de categoria clientului (I–IX)","en": "Up to 600,000 MDL per family; rate depends on client category (I–IX)"},"url": "https://www.otpbank.md/individuals-unsecured-loans"},{"bank": "OTP Bank","category": "consumer","product": {"ru": "Потреб. кредит без залога (фикс.)","ro": "Credit de consum fără gaj (rată fixă)","en": "Unsecured consumer loan (fixed rate)"},"currency": "MDL","minAmount": 2000,"maxAmount": 400000,"minTerm": 6,"maxTerm": 60,"rateType": "fixed","rateMin": 10.0,"rateMax": 28.0,"aprMin": 10.36,"aprMax": 31.89,"conditions": {"ru": "До 600 000 MDL на семью; ставка зависит от категории клиента (I–IX)","ro": "Până la 600 000 MDL per familie; rata depinde de categoria clientului (I–IX)","en": "Up to 600,000 MDL per family; rate depends on client category (I–IX)"},"url": "https://www.otpbank.md/individuals-unsecured-loans"},{"bank": "OTP Bank","category": "mortgage","product": {"ru": "Ипотека в MDL","ro": "Credit ipotecar în MDL","en": "Mortgage in MDL"},"currency": "MDL","minAmount": 50000,"maxAmount": 6000000,"minTerm": 12,"maxTerm": 360,"rateType": "mixed","rateMin": 7.9,"rateMax": null,"aprMin": 9.91,"aprMax": null,"conditions": {"ru": "Фикс. 7,9% первые 12 мес., далее 9,67% плавающая (пример на 1 млн MDL/360 мес.); финансирование до 90%","ro": "Fix 7,9% primele 12 luni, apoi 9,67% flotantă (exemplu pentru 1 mil. MDL/360 luni); finanțare până la 90%","en": "Fixed 7.9% for the first 12 months, then 9.67% floating (example for 1M MDL/360 months); financing up to 90%"},"url": "https://www.otpbank.md/individuals-mortgage-loans-mdl"},{"bank": "OTP Bank","category": "card","product": {"ru": "Mastercard NEOS","ro": "Mastercard NEOS","en": "Mastercard NEOS"},"currency": "MDL","minAmount": null,"maxAmount": null,"minTerm": null,"maxTerm": null,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Льготный период до 60 дней; точная ставка не опубликована","ro": "Perioadă de grație până la 60 zile; rata exactă nu este publicată","en": "Grace period up to 60 days; exact rate not published"},"url": "https://www.otpbank.md/individuals-cards"},{"bank": "OTP Bank","category": "card","product": {"ru": "Visa Gold Credit","ro": "Visa Gold Credit","en": "Visa Gold Credit"},"currency": "MDL","minAmount": null,"maxAmount": null,"minTerm": null,"maxTerm": null,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Льготный период до 60 дней; точная ставка не опубликована","ro": "Perioadă de grație până la 60 zile; rata exactă nu este publicată","en": "Grace period up to 60 days; exact rate not published"},"url": "https://www.otpbank.md/individuals-cards"},{"bank": "ProCredit Bank","category": "consumer","product": {"ru": "Personal Needs, фикс. ставка","ro": "Personal Needs, rată fixă","en": "Personal Needs, fixed rate"},"currency": "MDL","minAmount": null,"maxAmount": 400000,"minTerm": null,"maxTerm": 60,"rateType": "fixed","rateMin": 11.0,"rateMax": null,"aprMin": 11.56,"aprMax": null,"conditions": {"ru": "Без залога; возраст 21–65; промо-ставка действует до 19.10.2026","ro": "Fără gaj; vârsta 21–65; rata promoțională valabilă până la 19.10.2026","en": "Unsecured; age 21–65; promotional rate valid until 19.10.2026"},"url": "https://procreditbank.md/en/rata_fixa"},{"bank": "ProCredit Bank","category": "consumer","product": {"ru": "Personal Needs, плав. ставка","ro": "Personal Needs, rată flotantă","en": "Personal Needs, floating rate"},"currency": "MDL","minAmount": null,"maxAmount": 400000,"minTerm": null,"maxTerm": 60,"rateType": "floating","rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Ставка не опубликована отдельно, см. калькулятор на сайте","ro": "Rata nu este publicată separat, vezi calculatorul de pe site","en": "Rate not published separately, see the calculator on the website"},"url": "https://www.procreditbank.md/en/nevoi_personale"},{"bank": "ProCredit Bank","category": "consumer","product": {"ru": "Автокредит","ro": "Credit auto","en": "Car loan"},"currency": "MDL","minAmount": null,"maxAmount": null,"minTerm": null,"maxTerm": 60,"rateType": "floating","rateMin": 10.25,"rateMax": null,"aprMin": 10.73,"aprMax": null,"conditions": {"ru": "Пример на 600 000 MDL/60 мес.; комиссии 0%; промо-ставка действует до 19.10.2026","ro": "Exemplu pentru 600 000 MDL/60 luni; comisioane 0%; rata promoțională valabilă până la 19.10.2026","en": "Example for 600,000 MDL/60 months; 0% fees; promotional rate valid until 19.10.2026"},"url": "https://procreditbank.md/en/credit-auto"},{"bank": "ProCredit Bank","category": "mortgage","product": {"ru": "Housing loan","ro": "Housing loan","en": "Housing loan"},"currency": "MDL/EUR/USD","minAmount": null,"maxAmount": null,"minTerm": null,"maxTerm": 360,"rateType": "floating","rateMin": 8.75,"rateMax": null,"aprMin": 9.1,"aprMax": null,"conditions": {"ru": "Комиссии 0%; акция рефинансирования с бесплатным нотариусом 02.09–20.10.2026","ro": "Comisioane 0%; promoție de refinanțare cu notar gratuit 02.09–20.10.2026","en": "0% fees; refinancing promo with free notary 02.09–20.10.2026"},"url": "https://procreditbank.md/en/credit_ipotecar"},{"bank": "Energbank","category": "consumer","product": {"ru": "Кредит без залога","ro": "Credit fără gaj","en": "Unsecured loan"},"currency": "MDL","minAmount": null,"maxAmount": 400000,"minTerm": null,"maxTerm": 60,"rateType": null,"rateMin": 9.0,"rateMax": null,"aprMin": 9.33,"aprMax": null,"conditions": {"ru": "Прочие комиссии 0%","ro": "Alte comisioane 0%","en": "Other fees 0%"},"url": "https://www.energbank.com/ro/page/credite-de-consum"},{"bank": "Energbank","category": "consumer","product": {"ru": "Кредит с залогом","ro": "Credit cu gaj","en": "Secured loan"},"currency": "MDL","minAmount": null,"maxAmount": 2500000,"minTerm": null,"maxTerm": 60,"rateType": null,"rateMin": 9.17,"rateMax": null,"aprMin": 9.51,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://www.energbank.com/ro/page/credite-de-consum"},{"bank": "Energbank","category": "consumer","product": {"ru": "Кредит в MyEnergBank (онлайн)","ro": "Credit prin MyEnergBank (online)","en": "Loan via MyEnergBank (online)"},"currency": "MDL","minAmount": null,"maxAmount": 200000,"minTerm": null,"maxTerm": 60,"rateType": "fixed","rateMin": 9.9,"rateMax": null,"aprMin": 10.3,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://www.energbank.com/ro/page/credite-de-consum"},{"bank": "Energbank","category": "consumer","product": {"ru": "Credit Express","ro": "Credit Express","en": "Credit Express"},"currency": "MDL","minAmount": null,"maxAmount": 50000,"minTerm": null,"maxTerm": 48,"rateType": null,"rateMin": 10,"rateMax": null,"aprMin": 32.61,"aprMax": null,"conditions": {"ru": "Высокий ГПС из-за дополнительных комиссий","ro": "DAE ridicat din cauza comisioanelor suplimentare","en": "High APR due to additional fees"},"url": "https://www.energbank.com/ro/page/credite-de-consum"},{"bank": "Energbank","category": "consumer","product": {"ru": "Credit IMPULS (для ИП/патент)","ro": "Credit IMPULS (pentru PFA/patentă)","en": "Credit IMPULS (for sole proprietors/patent holders)"},"currency": "MDL","minAmount": null,"maxAmount": 500000,"minTerm": null,"maxTerm": 60,"rateType": null,"rateMin": 18.65,"rateMax": null,"aprMin": 20.13,"aprMax": null,"conditions": {"ru": "Для держателей патента и индивидуальных предпринимателей","ro": "Pentru deținătorii de patentă și întreprinzătorii individuali","en": "For patent holders and individual entrepreneurs"},"url": "https://www.energbank.com/ro/page/credite-de-consum"},{"bank": "Energbank","category": "mortgage","product": {"ru": "Ипотека CASA TA","ro": "Credit ipotecar CASA TA","en": "CASA TA mortgage"},"currency": "MDL","minAmount": null,"maxAmount": 7000000,"minTerm": null,"maxTerm": 360,"rateType": null,"rateMin": 7.5,"rateMax": null,"aprMin": 7.73,"aprMax": null,"conditions": {"ru": "Прочие комиссии 0%","ro": "Alte comisioane 0%","en": "Other fees 0%"},"url": "https://www.energbank.com/ro/page/credite-ipotecare"},{"bank": "Energbank","category": "mortgage","product": {"ru": "Credit Investițional","ro": "Credit Investițional","en": "Credit Investițional"},"currency": "MDL","minAmount": null,"maxAmount": 7000000,"minTerm": null,"maxTerm": 240,"rateType": null,"rateMin": 8.5,"rateMax": null,"aprMin": 8.79,"aprMax": null,"conditions": {"ru": null,"ro": null,"en": null},"url": "https://www.energbank.com/ro/page/credite-ipotecare"},{"bank": "Energbank","category": "mortgage","product": {"ru": "Prima Casă Plus","ro": "Prima Casă Plus","en": "Prima Casă Plus"},"currency": "MDL","minAmount": null,"maxAmount": 2500000,"minTerm": null,"maxTerm": 360,"rateType": null,"rateMin": 8.66,"rateMax": null,"aprMin": 9.19,"aprMax": null,"conditions": {"ru": "Прочие комиссии 1%","ro": "Alte comisioane 1%","en": "Other fees 1%"},"url": "https://www.energbank.com/ro/page/credite-ipotecare"},{"bank": "Energbank","category": "mortgage","product": {"ru": "Credit DIASPORA","ro": "Credit DIASPORA","en": "Credit DIASPORA"},"currency": "MDL","minAmount": null,"maxAmount": 4000000,"minTerm": null,"maxTerm": 240,"rateType": null,"rateMin": 11.17,"rateMax": null,"aprMin": 11.69,"aprMax": null,"conditions": {"ru": "Для молдавской диаспоры","ro": "Pentru diaspora moldovenească","en": "For the Moldovan diaspora"},"url": "https://www.energbank.com/ro/page/credite-ipotecare"},{"bank": "EuroCreditBank","category": "consumer","product": {"ru": "Retail Simplu","ro": "Retail Simplu","en": "Retail Simplu"},"currency": "MDL","minAmount": 3000,"maxAmount": 400000,"minTerm": 3,"maxTerm": 60,"rateType": null,"rateMin": 10.5,"rateMax": null,"aprMin": 11.01,"aprMax": null,"conditions": {"ru": "Без залога (пример из калькулятора)","ro": "Fără gaj (exemplu din calculator)","en": "Unsecured (example from calculator)"},"url": "https://www.ecb.md/ro/credite-persoane-fizice/"},{"bank": "EuroCreditBank","category": "consumer","product": {"ru": "Simplu Express","ro": "Simplu Express","en": "Simplu Express"},"currency": "MDL","minAmount": 3000,"maxAmount": 400000,"minTerm": 3,"maxTerm": 60,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Без залога; ставка требует выбора продукта в калькуляторе","ro": "Fără gaj; rata necesită selectarea produsului în calculator","en": "Unsecured; rate requires selecting the product in the calculator"},"url": "https://www.ecb.md/ro/credite-persoane-fizice/"},{"bank": "EuroCreditBank","category": "consumer","product": {"ru": "CrediPlus","ro": "CrediPlus","en": "CrediPlus"},"currency": "MDL","minAmount": 3000,"maxAmount": 40000,"minTerm": 3,"maxTerm": 36,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Без залога","ro": "Fără gaj","en": "Unsecured"},"url": "https://www.ecb.md/ro/credite-persoane-fizice/"},{"bank": "EuroCreditBank","category": "consumer","product": {"ru": "Credit Auto","ro": "Credit Auto","en": "Credit Auto"},"currency": "MDL","minAmount": 5000,"maxAmount": 800000,"minTerm": 6,"maxTerm": 60,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "С залогом (автомобиль)","ro": "Cu gaj (autovehicul)","en": "Secured (vehicle)"},"url": "https://www.ecb.md/ro/credite-persoane-fizice/"},{"bank": "EuroCreditBank","category": "consumer","product": {"ru": "OVERDRAFT","ro": "OVERDRAFT","en": "OVERDRAFT"},"currency": "MDL","minAmount": 1000,"maxAmount": 50000,"minTerm": 1,"maxTerm": 24,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Без залога","ro": "Fără gaj","en": "Unsecured"},"url": "https://www.ecb.md/ro/credite-persoane-fizice/"},{"bank": "EuroCreditBank","category": "consumer","product": {"ru": "Кредит под залог депозита","ro": "Credit garantat cu depozit","en": "Loan secured by deposit"},"currency": "MDL","minAmount": 5000,"maxAmount": 1000000,"minTerm": 1,"maxTerm": 60,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "С залогом депозита","ro": "Cu gaj sub formă de depozit","en": "Secured by deposit"},"url": "https://www.ecb.md/ro/credite-persoane-fizice/"},{"bank": "EuroCreditBank","category": "mortgage","product": {"ru": "«Casa mea» / «Reparație»","ro": "«Casa mea» / «Reparație»","en": "«Casa mea» / «Reparație»"},"currency": "MDL","minAmount": 5000,"maxAmount": 5000000,"minTerm": 6,"maxTerm": 240,"rateType": null,"rateMin": 10.0,"rateMax": 10.3,"aprMin": 10.47,"aprMax": 10.79,"conditions": {"ru": "Ставка по категории клиента: 10,00% (категории 2–4) — 10,30% (базовая категория 1); ГПС 10,47–10,79%; льготный период до 6 мес.; залог недвижимости/цессия/поручительство","ro": "Rata după categoria clientului: 10,00% (categoriile 2–4) — 10,30% (categoria de bază 1); DAE 10,47–10,79%; perioadă de grație până la 6 luni; gaj imobiliar/cesiune/fidejusiune","en": "Rate by client category: 10.00% (categories 2–4) — 10.30% (base category 1); APR 10.47–10.79%; grace period up to 6 months; real-estate collateral/assignment/guarantee"},"url": "https://www.ecb.md/ipotechnyj-kredit-casa-mea/"},{"bank": "EuroCreditBank","category": "card","product": {"ru": "Карта SMART","ro": "Card SMART","en": "SMART Card"},"currency": "MDL","minAmount": 3000,"maxAmount": 400000,"minTerm": 36,"maxTerm": 60,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Без залога; ставка требует выбора продукта в калькуляторе","ro": "Fără gaj; rata necesită selectarea produsului în calculator","en": "Unsecured; rate requires selecting the product in the calculator"},"url": "https://www.ecb.md/ro/credite-persoane-fizice/"},{"bank": "Eximbank","category": "consumer","product": {"ru": "Loan PERSONAL","ro": "Loan PERSONAL","en": "Loan PERSONAL"},"currency": "MDL","minAmount": 30000,"maxAmount": 200000,"minTerm": 12,"maxTerm": 300,"rateType": "fixed","rateMin": 9.48,"rateMax": null,"aprMin": 9.9,"aprMax": null,"conditions": {"ru": "Без реальных гарантий; пример калькулятора 100 000 MDL/36 мес.","ro": "Fără garanții reale; exemplu din calculator 100 000 MDL/36 luni","en": "No real collateral; calculator example 100,000 MDL/36 months"},"url": "https://eximbank.md/credit-de-consum"},{"bank": "Eximbank","category": "consumer","product": {"ru": "Loan MAGNIFIC","ro": "Loan MAGNIFIC","en": "Loan MAGNIFIC"},"currency": "MDL","minAmount": 200000,"maxAmount": 400000,"minTerm": 12,"maxTerm": 300,"rateType": "fixed","rateMin": 9.28,"rateMax": null,"aprMin": 9.68,"aprMax": null,"conditions": {"ru": "Без реальных гарантий; ставка индивидуальна","ro": "Fără garanții reale; rata este individuală","en": "No real collateral; rate is individual"},"url": "https://eximbank.md/credit-de-consum"},{"bank": "Eximbank","category": "consumer","product": {"ru": "Loan SENIOR","ro": "Loan SENIOR","en": "Loan SENIOR"},"currency": "MDL","minAmount": 20000,"maxAmount": 150000,"minTerm": 12,"maxTerm": 360,"rateType": "fixed","rateMin": 9.0,"rateMax": null,"aprMin": 10.68,"aprMax": null,"conditions": {"ru": "Только по пенсионному удостоверению","ro": "Doar cu legitimația de pensionar","en": "Pension certificate holders only"},"url": "https://eximbank.md/credit-de-consum"},{"bank": "Eximbank","category": "consumer","product": {"ru": "Credit INVESTIȚIONAL (личный)","ro": "Credit INVESTIȚIONAL (personal)","en": "Credit INVESTIȚIONAL (personal)"},"currency": "MDL","minAmount": null,"maxAmount": 4000000,"minTerm": null,"maxTerm": null,"rateType": "mixed","rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Одобрение максимум за 1 день","ro": "Aprobare în maximum 1 zi","en": "Approval within 1 day maximum"},"url": "https://eximbank.md/credit-de-consum"},{"bank": "Eximbank","category": "mortgage","product": {"ru": "Credit FAMIGLIA","ro": "Credit FAMIGLIA","en": "Credit FAMIGLIA"},"currency": "MDL","minAmount": 100000,"maxAmount": 5000000,"minTerm": 12,"maxTerm": 300,"rateType": "mixed","rateMin": 9.16,"rateMax": 9.66,"aprMin": 10.55,"aprMax": 11.41,"conditions": {"ru": "Фикс. ставка 1 или 4 года, затем плавающая","ro": "Rată fixă 1 sau 4 ani, apoi flotantă","en": "Fixed rate for 1 or 4 years, then floating"},"url": "https://eximbank.md/credit-ipotecare"},{"bank": "Eximbank","category": "mortgage","product": {"ru": "Credit INVESTIȚIONAL (ипотека)","ro": "Credit INVESTIȚIONAL (ipotecar)","en": "Credit INVESTIȚIONAL (mortgage)"},"currency": "MDL","minAmount": 100000,"maxAmount": 5000000,"minTerm": 12,"maxTerm": 300,"rateType": "mixed","rateMin": 9.16,"rateMax": 9.66,"aprMin": 9.26,"aprMax": 10.09,"conditions": {"ru": "Одобрение максимум за 1 день","ro": "Aprobare în maximum 1 zi","en": "Approval within 1 day maximum"},"url": "https://eximbank.md/credit-ipotecare"},{"bank": "Eximbank","category": "mortgage","product": {"ru": "Credit FAMIGLIA INVESTO","ro": "Credit FAMIGLIA INVESTO","en": "Credit FAMIGLIA INVESTO"},"currency": "MDL","minAmount": null,"maxAmount": 2000000,"minTerm": null,"maxTerm": null,"rateType": "mixed","rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Для незавершённого строительства","ro": "Pentru construcții neterminate","en": "For unfinished construction"},"url": "https://eximbank.md/credit-ipotecare"},{"bank": "Eximbank","category": "mortgage","product": {"ru": "Loan Prima Casă","ro": "Loan Prima Casă","en": "Loan Prima Casă"},"currency": "MDL","minAmount": 100000,"maxAmount": 2375000,"minTerm": 6,"maxTerm": 360,"rateType": "floating","rateMin": 8.66,"rateMax": null,"aprMin": 9.34,"aprMax": 9.43,"conditions": {"ru": "Собственный взнос от 5%","ro": "Aport propriu de la 5%","en": "Own contribution from 5%"},"url": "https://eximbank.md/credit-ipotecare"},{"bank": "Eximbank","category": "card","product": {"ru": "Карта CIAO","ro": "Card CIAO","en": "CIAO Card"},"currency": "MDL","minAmount": null,"maxAmount": null,"minTerm": null,"maxTerm": null,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Выпуск ОСТАНОВЛЕН с 20.10.2023 — карта сейчас недоступна","ro": "Emiterea a fost OPRITĂ din 20.10.2023 — cardul nu este disponibil în prezent","en": "Issuance STOPPED as of 20.10.2023 — the card is currently unavailable"},"url": "https://eximbank.md/credit-de-consum"},{"bank": "FinComBank","category": "consumer","product": {"ru": "Credit Express","ro": "Credit Express","en": "Credit Express"},"currency": "MDL","minAmount": null,"maxAmount": 350000,"minTerm": null,"maxTerm": 60,"rateType": "fixed","rateMin": 9.0,"rateMax": 10.0,"aprMin": null,"aprMax": 10.47,"conditions": {"ru": "9% при зарплате на карту FinComBank/хорошей кредитной истории, иначе 10%; без залога до 200 000 MDL","ro": "9% pentru salariu pe cardul FinComBank/istoric de credit bun, altfel 10%; fără gaj până la 200 000 MDL","en": "9% with salary on FinComBank card/good credit history, otherwise 10%; unsecured up to 200,000 MDL"},"url": "https://www.fincombank.com/ro/express-credit-online"},{"bank": "FinComBank","category": "consumer","product": {"ru": "Кредит с залогом (со страхованием)","ro": "Credit cu gaj (cu asigurare)","en": "Secured loan (with insurance)"},"currency": "MDL","minAmount": 350000,"maxAmount": null,"minTerm": null,"maxTerm": 60,"rateType": null,"rateMin": null,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "С залогом движимого/недвижимого имущества; точная ставка не опубликована","ro": "Cu gaj de bunuri mobile/imobile; rata exactă nu este publicată","en": "Secured by movable/immovable property; exact rate not published"},"url": "https://www.fincombank.com/ro/credite-pentru-tine"},{"bank": "FinComBank","category": "mortgage","product": {"ru": "Ипотека","ro": "Credit ipotecar","en": "Mortgage"},"currency": "MDL","minAmount": null,"maxAmount": null,"minTerm": null,"maxTerm": 300,"rateType": "floating","rateMin": 8.41,"rateMax": null,"aprMin": 8.74,"aprMax": null,"conditions": {"ru": "До 25 лет на покупку / 15 лет на ремонт; скидка −0,5% для зарплатных клиентов; первый взнос от 0%","ro": "Până la 25 ani pentru achiziție / 15 ani pentru reparație; reducere −0,5% pentru clienții salariați; avans de la 0%","en": "Up to 25 years for purchase / 15 years for renovation; −0.5% discount for salary clients; down payment from 0%"},"url": "https://www.fincombank.com/ro/ipoteca-locativa"},{"bank": "FinComBank","category": "card","product": {"ru": "Карта OPTI","ro": "Card OPTI","en": "OPTI Card"},"currency": "MDL","minAmount": null,"maxAmount": 350000,"minTerm": null,"maxTerm": 48,"rateType": "fixed","rateMin": 14.99,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "Льготный период до 90 дней (0% при полном погашении за 3 мес.); без залога до 200 000 MDL","ro": "Perioadă de grație până la 90 zile (0% la rambursare integrală în 3 luni); fără gaj până la 200 000 MDL","en": "Grace period up to 90 days (0% if repaid in full within 3 months); unsecured up to 200,000 MDL"},"url": "https://www.fincombank.com/ro/card-de-credit-opti"},{"bank": "Comertbank","category": "consumer","product": {"ru": "Credit RETAIL","ro": "Credit RETAIL","en": "Credit RETAIL"},"currency": "MDL","minAmount": 3000,"maxAmount": 100000,"minTerm": 3,"maxTerm": 36,"rateType": "fixed","rateMin": 14.0,"rateMax": null,"aprMin": 14.93,"aprMax": null,"conditions": {"ru": "Без реальных гарантий","ro": "Fără garanții reale","en": "No real collateral"},"url": "https://comertbank.md/services/physical_person/consumer_credit/?id=3"},{"bank": "Comertbank","category": "consumer","product": {"ru": "Flash Royal (револьв. линия/карта)","ro": "Flash Royal (linie revolving/card)","en": "Flash Royal (revolving line/card)"},"currency": "MDL","minAmount": 1000,"maxAmount": 100000,"minTerm": null,"maxTerm": 48,"rateType": "floating","rateMin": 14.09,"rateMax": null,"aprMin": null,"aprMax": null,"conditions": {"ru": "0% в льготный период; мин. платёж 10% от использованного лимита; 24 мес. активный + 24 мес. убывающий","ro": "0% în perioada de grație; plată min. 10% din limita utilizată; 24 luni activ + 24 luni descrescător","en": "0% during grace period; min. payment 10% of used limit; 24 months active + 24 months declining"},"url": "https://comertbank.md/services/physical_person/consumer_credit/?id=18"},{"bank": "Comertbank","category": "consumer","product": {"ru": "Кредит с залогом","ro": "Credit cu gaj","en": "Secured loan"},"currency": "MDL","minAmount": 50000,"maxAmount": 700000,"minTerm": 3,"maxTerm": 60,"rateType": "fixed","rateMin": 14.0,"rateMax": 14.5,"aprMin": 14.91,"aprMax": 15.48,"conditions": {"ru": "14% при зарплате на карту Comertbank, иначе 14,5%; залог — недвижимость/депозит/поручительство","ro": "14% pentru salariu pe cardul Comertbank, altfel 14,5%; gaj — imobil/depozit/fidejusiune","en": "14% with salary on Comertbank card, otherwise 14.5%; collateral — real estate/deposit/guarantee"},"url": "https://comertbank.md/services/physical_person/consumer_credit/?id=17"},{"bank": "Comertbank","category": "consumer","product": {"ru": "Credit AUTO","ro": "Credit AUTO","en": "Credit AUTO"},"currency": "MDL","minAmount": null,"maxAmount": 1200000,"minTerm": 12,"maxTerm": 60,"rateType": "floating","rateMin": 8.83,"rateMax": 9.33,"aprMin": 9.2,"aprMax": 9.74,"conditions": {"ru": "8,83% для электро-/гибридных авто, 9,33% стандарт","ro": "8,83% pentru autovehicule electrice/hibride, 9,33% standard","en": "8.83% for electric/hybrid vehicles, 9.33% standard"},"url": "https://comertbank.md/services/physical_person/consumer_credit/?id=16"},{"bank": "Comertbank","category": "mortgage","product": {"ru": "Кредит на инвестиции в недвижимость","ro": "Credit pentru investiții imobiliare","en": "Real estate investment loan"},"currency": "MDL","minAmount": null,"maxAmount": 3000000,"minTerm": 12,"maxTerm": 240,"rateType": "floating","rateMin": 8.83,"rateMax": 9.83,"aprMin": 9.2,"aprMax": 10.29,"conditions": {"ru": "8,83% зарплатным клиентам, 9,33% стандарт, 9,83% для нежилых объектов/земли","ro": "8,83% pentru clienții salariați, 9,33% standard, 9,83% pentru spații nerezidențiale/teren","en": "8.83% for salary clients, 9.33% standard, 9.83% for non-residential properties/land"},"url": "https://comertbank.md/services/physical_person/consumer_credit/?id=12"}]</script>
+<script type="application/json" id="rate-history">{"snapshots": [{"date": "2026-10-06","consumer": {"maib": 9.24,"Victoriabank": 10.25,"Moldindconbank": 9,"OTP Bank": 8.8,"ProCredit Bank": 10.25,"Energbank": 9.0,"EuroCreditBank": 10.5,"Eximbank": 9.0,"FinComBank": 9.0,"Comertbank": 8.83},"mortgage": {"maib": 7.95,"Victoriabank": 8.25,"Moldindconbank": 7.4,"OTP Bank": 7.9,"ProCredit Bank": 8.75,"Energbank": 7.5,"EuroCreditBank": 9.0,"Eximbank": 8.66,"FinComBank": 8.41,"Comertbank": 8.83}},{"date": "2026-10-12","consumer": {"maib": 9.24,"Victoriabank": 10.25,"Moldindconbank": 9,"OTP Bank": 8.8,"ProCredit Bank": 10.25,"Energbank": 9.0,"EuroCreditBank": 10.5,"Eximbank": 9.0,"FinComBank": 9.0,"Comertbank": 8.83},"mortgage": {"maib": 8.25,"Victoriabank": 8.25,"Moldindconbank": 7.4,"OTP Bank": 7.9,"ProCredit Bank": 8.75,"Energbank": 7.5,"EuroCreditBank": 10.0,"Eximbank": 8.66,"FinComBank": 8.41,"Comertbank": 8.83}}]}</script>
+<script>
+(function(){
+  "use strict";
+  var DATA = JSON.parse(document.getElementById('offers-data').textContent);
+  var HISTORY = JSON.parse(document.getElementById('rate-history').textContent);
+
+  var CAT_ORDER = ["consumer","mortgage","card"];
+  var CAT_CLASS = {"consumer":"badge-consumer","mortgage":"badge-mortgage","card":"badge-card"};
+  var RATE_TYPES = ["fixed","floating","mixed"];
+  var LOCALE_MAP = {ru:"ru-RU", ro:"ro-RO", en:"en-US"};
+
+  var I18N = {
+    ru: {
+      tagline: "Кредиты 10 банков Молдовы — на 12.10.2026",
+      filtersBtn: "Фильтры",
+      searchLabel: "Поиск по банку, продукту или условиям",
+      searchPlaceholder: "Поиск: банк, продукт, условие…",
+      sortLabel: "Сортировка",
+      sortOptions: {rateAsc:"Ставка ↑", rateDesc:"Ставка ↓", aprAsc:"ГПС ↑", amountDesc:"Сумма ↓", termDesc:"Срок ↓", bank:"Банк А→Я"},
+      categoryLabel: "Категория",
+      bankLabel: "Банк",
+      rateTypeLabel: "Тип ставки",
+      rateRangeLabel: "Ставка не выше",
+      amountRangeLabel: "Нужна сумма от",
+      termRangeLabel: "Нужен срок от",
+      resetBtn: "Сбросить всё",
+      emptyState: "Совпадений не найдено. Попробуйте снять часть фильтров или ослабить требования к ставке, сумме или сроку.",
+      footer: "Данные собраны с официальных сайтов 10 банков, лицензированных Нацбанком Молдовы, по состоянию на 6 октября 2026 года. Указаны стартовые ставки «от» — фактическая одобренная ставка определяется индивидуально после оценки платёжеспособности. Прочерк в поле «ставка» означает, что банк не публикует точное значение в открытом доступе. Страница не является финансовой консультацией — перед решением сверьтесь с банком.",
+      sourceLink: "Официальная страница банка →",
+      categories: {consumer:"Потребительский", mortgage:"Ипотека", card:"Кредитная карта"},
+      rateTypes: {fixed:"фиксированная", floating:"плавающая", mixed:"смешанная"},
+      onRequest: "по запросу",
+      sum: "Сумма",
+      term: "Срок",
+      currency: "Валюта",
+      aprPrefix: "ГПС от ",
+      fromPrefix: "от ",
+      toPrefix: "до ",
+      monthsShort: "мес.",
+      zeroMonths: "0 мес.",
+      resultCount: function(shown,total){ return "Показано <b>"+shown+"</b> из <b>"+total+"</b> предложений"; },
+      yearsWord: function(n){ var mod10=n%10, mod100=n%100; if(mod100>=11&&mod100<=14) return "лет"; if(mod10===1) return "год"; if(mod10>=2&&mod10<=4) return "года"; return "лет"; },
+      tabBrowse: "Все предложения",
+      tabCalc: "Подбор по сумме",
+      calcCategoryLabel: "Категория",
+      calcAmountLabel: "Сумма кредита",
+      calcTermLabel: "Срок",
+      calcEmptyState: "Нет предложений по заданным параметрам. Попробуйте изменить сумму, срок или категорию.",
+      calcDisclaimer: "Расчёт ориентировочный: использует минимальную ставку, заявленную банком для этого продукта. Итоговая ставка и одобренная сумма определяются индивидуально после оценки платёжеспособности.",
+      paymentUnit: "/мес.",
+      calcResultCount: function(shown, amount, term){ return "Найдено <b>"+shown+"</b> предложений для суммы <b>"+amount+"</b> на срок <b>"+term+"</b>"; },
+      calcSortLabel: "Сортировка",
+      calcSortOptions: {paymentAsc:"Платёж ↑", paymentDesc:"Платёж ↓", rateAsc:"Ставка ↑", aprAsc:"ГПС ↑", bank:"Банк А→Я"},
+      tabAnalytics: "Аналитика",
+      analyticsHint: "Самая низкая объявленная ставка «от» по каждому банку. Нажмите на банк, чтобы увидеть, как менялась его ставка по неделям.",
+      analyticsNote: "История копится с 12.10.2026 — раз в неделю, при каждом обновлении страницы. Банки без опубликованной ставки по этой категории на графике не показаны.",
+      trendCloseLabel: "Закрыть",
+      trendTitle: function(bank,catLabel){ return bank+" — "+catLabel; },
+      trendSub: function(n,from,to){ return n<=1 ? ("пока только "+from) : (from+" → "+to+" ("+n+" "+(n===2?"точки":"точек")+")"); },
+      trendNoChange: "за это время ставка не менялась"
+    },
+    ro: {
+      tagline: "Credite de la 10 bănci din Moldova — la 12.10.2026",
+      filtersBtn: "Filtre",
+      searchLabel: "Căutare după bancă, produs sau condiții",
+      searchPlaceholder: "Căutare: bancă, produs, condiție…",
+      sortLabel: "Sortare",
+      sortOptions: {rateAsc:"Rată ↑", rateDesc:"Rată ↓", aprAsc:"DAE ↑", amountDesc:"Sumă ↓", termDesc:"Termen ↓", bank:"Bancă A→Z"},
+      categoryLabel: "Categorie",
+      bankLabel: "Bancă",
+      rateTypeLabel: "Tip de rată",
+      rateRangeLabel: "Rata nu depășește",
+      amountRangeLabel: "Suma necesară de la",
+      termRangeLabel: "Termenul necesar de la",
+      resetBtn: "Resetează tot",
+      emptyState: "Nu au fost găsite rezultate. Încercați să eliminați unele filtre sau să relaxați cerințele privind rata, suma sau termenul.",
+      footer: "Datele au fost colectate de pe site-urile oficiale ale celor 10 bănci licențiate de Banca Națională a Moldovei, la data de 12 octombrie 2026. Sunt indicate ratele de start „de la” — rata efectiv aprobată se stabilește individual, după evaluarea capacității de plată. O liniuță la câmpul „rată” înseamnă că banca nu publică o valoare exactă. Pagina nu constituie consultanță financiară — verificați cu banca înainte de a lua o decizie.",
+      sourceLink: "Pagina oficială a băncii →",
+      categories: {consumer:"Credit de consum", mortgage:"Ipotecă", card:"Card de credit"},
+      rateTypes: {fixed:"fixă", floating:"flotantă", mixed:"mixtă"},
+      onRequest: "la cerere",
+      sum: "Sumă",
+      term: "Termen",
+      currency: "Valută",
+      aprPrefix: "DAE de la ",
+      fromPrefix: "de la ",
+      toPrefix: "până la ",
+      monthsShort: "luni",
+      zeroMonths: "0 luni",
+      resultCount: function(shown,total){ return "Afișate <b>"+shown+"</b> din <b>"+total+"</b> oferte"; },
+      yearsWord: function(n){ return n===1 ? "an" : "ani"; },
+      tabBrowse: "Toate ofertele",
+      tabCalc: "Selecție după sumă",
+      calcCategoryLabel: "Categorie",
+      calcAmountLabel: "Suma creditului",
+      calcTermLabel: "Termen",
+      calcEmptyState: "Nu există oferte pentru parametrii introduși. Încercați să schimbați suma, termenul sau categoria.",
+      calcDisclaimer: "Calcul orientativ: folosește rata minimă declarată de bancă pentru acest produs. Rata finală și suma aprobată se stabilesc individual, după evaluarea capacității de plată.",
+      paymentUnit: "/lună",
+      calcResultCount: function(shown, amount, term){ return "Găsite <b>"+shown+"</b> oferte pentru suma <b>"+amount+"</b> pe termen de <b>"+term+"</b>"; },
+      calcSortLabel: "Sortare",
+      calcSortOptions: {paymentAsc:"Rată lunară ↑", paymentDesc:"Rată lunară ↓", rateAsc:"Rată ↑", aprAsc:"DAE ↑", bank:"Bancă A→Z"},
+      tabAnalytics: "Analiză",
+      analyticsHint: "Cea mai mică rată „de la” anunțată de fiecare bancă. Apăsați pe o bancă pentru a vedea cum s-a schimbat rata ei în timp.",
+      analyticsNote: "Istoricul se adună de la 12.10.2026 — o dată pe săptămână, la fiecare actualizare a paginii. Băncile fără rată publicată pentru această categorie nu apar pe grafic.",
+      trendCloseLabel: "Închide",
+      trendTitle: function(bank,catLabel){ return bank+" — "+catLabel; },
+      trendSub: function(n,from,to){ return n<=1 ? ("doar "+from+" până acum") : (from+" → "+to+" ("+n+" puncte)"); },
+      trendNoChange: "rata nu s-a schimbat în această perioadă"
+    },
+    en: {
+      tagline: "Loans from 10 Moldovan banks — as of 12.10.2026",
+      filtersBtn: "Filters",
+      searchLabel: "Search by bank, product, or conditions",
+      searchPlaceholder: "Search: bank, product, condition…",
+      sortLabel: "Sort",
+      sortOptions: {rateAsc:"Rate ↑", rateDesc:"Rate ↓", aprAsc:"APR ↑", amountDesc:"Amount ↓", termDesc:"Term ↓", bank:"Bank A→Z"},
+      categoryLabel: "Category",
+      bankLabel: "Bank",
+      rateTypeLabel: "Rate type",
+      rateRangeLabel: "Rate no higher than",
+      amountRangeLabel: "Amount needed from",
+      termRangeLabel: "Term needed from",
+      resetBtn: "Reset all",
+      emptyState: "No matches found. Try removing some filters or relaxing the rate, amount, or term requirements.",
+      footer: "Data was collected from the official websites of the 10 banks licensed by the National Bank of Moldova, as of October 12, 2026. Rates shown are starting “from” rates — the actual approved rate is determined individually after an assessment of repayment capacity. A dash in the “rate” field means the bank does not publish an exact figure. This page is not financial advice — check with the bank before making a decision.",
+      sourceLink: "Bank's official page →",
+      categories: {consumer:"Consumer loan", mortgage:"Mortgage", card:"Credit card"},
+      rateTypes: {fixed:"fixed", floating:"floating", mixed:"mixed"},
+      onRequest: "on request",
+      sum: "Amount",
+      term: "Term",
+      currency: "Currency",
+      aprPrefix: "APR from ",
+      fromPrefix: "from ",
+      toPrefix: "up to ",
+      monthsShort: "mo.",
+      zeroMonths: "0 mo.",
+      resultCount: function(shown,total){ return "Showing <b>"+shown+"</b> of <b>"+total+"</b> offers"; },
+      yearsWord: function(n){ return n===1 ? "year" : "years"; },
+      tabBrowse: "All offers",
+      tabCalc: "Match by amount",
+      calcCategoryLabel: "Category",
+      calcAmountLabel: "Loan amount",
+      calcTermLabel: "Term",
+      calcEmptyState: "No offers match these parameters. Try changing the amount, term, or category.",
+      calcDisclaimer: "This is an estimate: it uses the minimum rate advertised by the bank for this product. The final rate and approved amount are determined individually after an assessment of repayment capacity.",
+      paymentUnit: "/mo.",
+      calcResultCount: function(shown, amount, term){ return "Found <b>"+shown+"</b> offers for an amount of <b>"+amount+"</b> over a term of <b>"+term+"</b>"; },
+      calcSortLabel: "Sort",
+      calcSortOptions: {paymentAsc:"Payment ↑", paymentDesc:"Payment ↓", rateAsc:"Rate ↑", aprAsc:"APR ↑", bank:"Bank A→Z"},
+      tabAnalytics: "Analytics",
+      analyticsHint: "The lowest advertised “from” rate for each bank. Click a bank to see how its rate changed over time.",
+      analyticsNote: "History has been tracked since 12.10.2026 — once a week, with each page update. Banks with no published rate for this category are not shown on the chart.",
+      trendCloseLabel: "Close",
+      trendTitle: function(bank,catLabel){ return bank+" — "+catLabel; },
+      trendSub: function(n,from,to){ return n<=1 ? ("only "+from+" so far") : (from+" → "+to+" ("+n+" points)"); },
+      trendNoChange: "the rate hasn't changed over this period"
+    }
+  };
+
+  function detectDefaultLang(){
+    try{
+      var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language||""];
+      for(var i=0;i<langs.length;i++){
+        var l = (langs[i]||"").toLowerCase();
+        if(l.indexOf("ro")===0) return "ro";
+        if(l.indexOf("ru")===0) return "ru";
+        if(l.indexOf("en")===0) return "en";
+      }
+    }catch(e){ /* ignore */ }
+    return "ro";
+  }
+
+  var state = {
+    lang: detectDefaultLang(),
+    activeTab:"browse",
+    search:"",
+    categories:new Set(),
+    banks:new Set(),
+    rateTypes:new Set(),
+    maxRate:35,
+    minAmount:0,
+    minTerm:0,
+    sort:"rateAsc",
+    calcCategory:"consumer",
+    calcAmount:100000,
+    calcTerm:60,
+    calcSort:"paymentAsc",
+    analyticsCategory:"consumer",
+    analyticsSelectedBank:null
+  };
+
+  var STORAGE_KEY = "ratamd_state_v3";
+  function loadState(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return;
+      var saved = JSON.parse(raw);
+      if(saved.lang && I18N[saved.lang]) state.lang = saved.lang;
+      if(saved.activeTab==="browse"||saved.activeTab==="calc"||saved.activeTab==="analytics") state.activeTab = saved.activeTab;
+      state.search = saved.search || "";
+      state.categories = new Set(saved.categories||[]);
+      state.banks = new Set(saved.banks||[]);
+      state.rateTypes = new Set(saved.rateTypes||[]);
+      state.maxRate = typeof saved.maxRate==="number" ? saved.maxRate : 35;
+      state.minAmount = typeof saved.minAmount==="number" ? saved.minAmount : 0;
+      state.minTerm = typeof saved.minTerm==="number" ? saved.minTerm : 0;
+      state.sort = saved.sort || "rateAsc";
+      if(saved.calcCategory && CAT_ORDER.indexOf(saved.calcCategory)!==-1) state.calcCategory = saved.calcCategory;
+      state.calcAmount = typeof saved.calcAmount==="number" ? saved.calcAmount : 100000;
+      state.calcTerm = typeof saved.calcTerm==="number" ? saved.calcTerm : 60;
+      state.calcSort = saved.calcSort || "paymentAsc";
+      if(saved.analyticsCategory==="consumer"||saved.analyticsCategory==="mortgage") state.analyticsCategory = saved.analyticsCategory;
+    }catch(e){ /* ignore, start fresh */ }
+  }
+  function saveState(){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        lang:state.lang,
+        activeTab:state.activeTab,
+        search:state.search,
+        categories:Array.from(state.categories),
+        banks:Array.from(state.banks),
+        rateTypes:Array.from(state.rateTypes),
+        maxRate:state.maxRate,
+        minAmount:state.minAmount,
+        minTerm:state.minTerm,
+        sort:state.sort,
+        calcCategory:state.calcCategory,
+        calcAmount:state.calcAmount,
+        calcTerm:state.calcTerm,
+        calcSort:state.calcSort,
+        analyticsCategory:state.analyticsCategory
+      }));
+    }catch(e){ /* storage unavailable, ignore */ }
+  }
+  loadState();
+
+  var banksList = Array.from(new Set(DATA.map(function(d){return d.bank;}))).sort(function(a,b){return a.localeCompare(b);});
+
+  function t(){ return I18N[state.lang]; }
+
+  function fmtInt(v){
+    return new Intl.NumberFormat(LOCALE_MAP[state.lang]||"ro-RO").format(v);
+  }
+  function fmtMoney(v){
+    if(v===null||v===undefined) return null;
+    return fmtInt(v)+" MDL";
+  }
+  function fmtTerm(m){
+    if(m===null||m===undefined) return null;
+    var s = m+" "+t().monthsShort;
+    if(m>=12 && m%12===0){ s += " ("+(m/12)+" "+t().yearsWord(m/12)+")"; }
+    return s;
+  }
+
+  function amountDisplay(d){
+    if(d.minAmount==null && d.maxAmount==null) return t().onRequest;
+    if(d.minAmount!=null && d.maxAmount!=null) return fmtMoney(d.minAmount)+" – "+fmtMoney(d.maxAmount);
+    if(d.maxAmount!=null) return t().toPrefix+fmtMoney(d.maxAmount);
+    return t().fromPrefix+fmtMoney(d.minAmount);
+  }
+  function termDisplay(d){
+    if(d.minTerm==null && d.maxTerm==null) return t().onRequest;
+    if(d.minTerm!=null && d.maxTerm!=null) return d.minTerm+" – "+fmtTerm(d.maxTerm);
+    if(d.maxTerm!=null) return t().toPrefix+fmtTerm(d.maxTerm);
+    return t().fromPrefix+fmtTerm(d.minTerm);
+  }
+  function rateDisplay(d){
+    if(d.rateMin==null) return {text:t().onRequest, unknown:true};
+    if(d.rateMax!=null && d.rateMax!==d.rateMin) return {text:d.rateMin+"–"+d.rateMax, unknown:false};
+    return {text:(d.rateType==="fixed"||d.rateType==="floating"||d.rateType==="mixed"?t().fromPrefix:"")+d.rateMin, unknown:false};
+  }
+
+  function buildChips(containerId, values, labelFn, selectedSet){
+    var el = document.getElementById(containerId);
+    el.innerHTML = "";
+    values.forEach(function(v){
+      var b = document.createElement('button');
+      b.type = "button";
+      b.className = "chip";
+      b.textContent = labelFn(v);
+      b.setAttribute('aria-pressed', selectedSet.has(v) ? "true":"false");
+      b.addEventListener('click', function(){
+        if(selectedSet.has(v)) selectedSet.delete(v); else selectedSet.add(v);
+        b.setAttribute('aria-pressed', selectedSet.has(v) ? "true":"false");
+        render();
+      });
+      el.appendChild(b);
+    });
+  }
+
+  function buildAllChips(){
+    buildChips('categoryChips', CAT_ORDER, function(v){return t().categories[v];}, state.categories);
+    buildChips('bankChips', banksList, function(v){return v;}, state.banks);
+    buildChips('rateTypeChips', RATE_TYPES, function(v){return t().rateTypes[v];}, state.rateTypes);
+  }
+
+  function updateRangeLabels(){
+    document.getElementById('rateRangeVal').textContent = state.maxRate>=35 ? "35%+" : state.maxRate+"%";
+    document.getElementById('amountRangeVal').textContent = state.minAmount<=0 ? "0 MDL" : fmtMoney(state.minAmount);
+    document.getElementById('termRangeVal').textContent = state.minTerm<=0 ? t().zeroMonths : fmtTerm(state.minTerm);
+  }
+
+  function updateFilterCount(){
+    var n = state.categories.size + state.banks.size + state.rateTypes.size
+      + (state.maxRate<35?1:0) + (state.minAmount>0?1:0) + (state.minTerm>0?1:0) + (state.search.trim()?1:0);
+    var badge = document.getElementById('filterCount');
+    if(n>0){ badge.hidden=false; badge.textContent=n; } else { badge.hidden=true; }
+  }
+
+  function passesFilters(d){
+    if(state.categories.size && !state.categories.has(d.category)) return false;
+    if(state.banks.size && !state.banks.has(d.bank)) return false;
+    if(state.rateTypes.size && !(d.rateType && state.rateTypes.has(d.rateType))) return false;
+    if(state.maxRate<35 && d.rateMin!=null && d.rateMin>state.maxRate) return false;
+    if(state.minAmount>0 && d.maxAmount!=null && d.maxAmount<state.minAmount) return false;
+    if(state.minTerm>0 && d.maxTerm!=null && d.maxTerm<state.minTerm) return false;
+    if(state.search.trim()){
+      var q = state.search.trim().toLowerCase();
+      var prod = d.product[state.lang] || d.product.ru || "";
+      var cond = d.conditions[state.lang] || d.conditions.ru || "";
+      var cat = t().categories[d.category] || "";
+      var hay = (d.bank+" "+prod+" "+cond+" "+cat).toLowerCase();
+      if(hay.indexOf(q)===-1) return false;
+    }
+    return true;
+  }
+
+  function sortItems(items){
+    var arr = items.slice();
+    function withFallback(v, fallback){ return v==null ? fallback : v; }
+    function prodOf(d){ return d.product[state.lang] || d.product.ru || ""; }
+    switch(state.sort){
+      case "rateAsc": arr.sort(function(a,b){ return withFallback(a.rateMin,999)-withFallback(b.rateMin,999); }); break;
+      case "rateDesc": arr.sort(function(a,b){ return withFallback(b.rateMin,-1)-withFallback(a.rateMin,-1); }); break;
+      case "aprAsc": arr.sort(function(a,b){ return withFallback(a.aprMin,999)-withFallback(b.aprMin,999); }); break;
+      case "amountDesc": arr.sort(function(a,b){ return withFallback(b.maxAmount,-1)-withFallback(a.maxAmount,-1); }); break;
+      case "termDesc": arr.sort(function(a,b){ return withFallback(b.maxTerm,-1)-withFallback(a.maxTerm,-1); }); break;
+      case "bank": arr.sort(function(a,b){ return a.bank.localeCompare(b.bank) || prodOf(a).localeCompare(prodOf(b)); }); break;
+    }
+    return arr;
+  }
+
+  function renderCard(d){
+    var rate = rateDisplay(d);
+    var product = d.product[state.lang] || d.product.ru;
+    var conditions = d.conditions[state.lang] || d.conditions.ru;
+
+    var card = document.createElement('article');
+    card.className = "card";
+
+    var top = document.createElement('div');
+    top.className = "card-top";
+    var bankEl = document.createElement('span');
+    bankEl.className = "bank-name";
+    bankEl.textContent = d.bank;
+    var badgeEl = document.createElement('span');
+    badgeEl.className = "badge "+(CAT_CLASS[d.category]||"badge-consumer");
+    badgeEl.textContent = t().categories[d.category] || d.category;
+    top.appendChild(bankEl); top.appendChild(badgeEl);
+
+    var name = document.createElement('h3');
+    name.className = "product-name";
+    name.textContent = product;
+
+    var rateBlock = document.createElement('div');
+    rateBlock.className = "rate-block";
+    var rateVal = document.createElement('span');
+    rateVal.className = "rate-value"+(rate.unknown?" unknown":"");
+    if(rate.unknown){ rateVal.textContent = rate.text; }
+    else { rateVal.innerHTML = rate.text+'<span class="rate-unit">%</span>'; }
+    rateBlock.appendChild(rateVal);
+    var rateMeta = document.createElement('span');
+    rateMeta.className = "rate-meta";
+    if(d.rateType){
+      var t1 = document.createElement('span'); t1.className="tag"; t1.textContent = t().rateTypes[d.rateType]||d.rateType;
+      rateMeta.appendChild(t1);
+    }
+    if(d.aprMin!=null){
+      var t2 = document.createElement('span'); t2.className="tag";
+      t2.textContent = t().aprPrefix+d.aprMin+"%"+(d.aprMax!=null&&d.aprMax!==d.aprMin?"–"+d.aprMax+"%":"");
+      rateMeta.appendChild(t2);
+    }
+    rateBlock.appendChild(rateMeta);
+
+    var metaGrid = document.createElement('dl');
+    metaGrid.className = "meta-grid";
+    metaGrid.innerHTML =
+      '<div><dt>'+t().sum+'</dt><dd>'+amountDisplay(d)+'</dd></div>'+
+      '<div><dt>'+t().term+'</dt><dd>'+termDisplay(d)+'</dd></div>'+
+      '<div><dt>'+t().currency+'</dt><dd>'+d.currency+'</dd></div>';
+
+    card.appendChild(top);
+    card.appendChild(name);
+    card.appendChild(rateBlock);
+    card.appendChild(metaGrid);
+
+    if(conditions){
+      var cond = document.createElement('p');
+      cond.className = "conditions";
+      cond.textContent = conditions;
+      card.appendChild(cond);
+    }
+
+    var link = document.createElement('a');
+    link.className = "source-link";
+    link.href = d.url;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = t().sourceLink;
+    card.appendChild(link);
+
+    return card;
+  }
+
+  function render(){
+    updateFilterCount();
+    saveState();
+    var filtered = DATA.filter(passesFilters);
+    var sorted = sortItems(filtered);
+    var grid = document.getElementById('cardsGrid');
+    grid.innerHTML = "";
+    var frag = document.createDocumentFragment();
+    sorted.forEach(function(d){ frag.appendChild(renderCard(d)); });
+    grid.appendChild(frag);
+
+    document.getElementById('emptyState').hidden = sorted.length>0;
+    document.getElementById('resultCount').innerHTML = t().resultCount(sorted.length, DATA.length);
+  }
+
+  function calcMonthlyPayment(principal, annualRatePct, months){
+    if(principal==null || annualRatePct==null || months==null || months<=0) return null;
+    var r = annualRatePct/100/12;
+    if(r<=0) return principal/months;
+    var factor = Math.pow(1+r, months);
+    if(!isFinite(factor) || factor===1) return principal/months;
+    return principal*r*factor/(factor-1);
+  }
+
+  function buildCalcCategoryChips(){
+    var el = document.getElementById('calcCategoryChips');
+    el.innerHTML = "";
+    CAT_ORDER.forEach(function(v){
+      var b = document.createElement('button');
+      b.type = "button";
+      b.className = "chip";
+      b.textContent = t().categories[v];
+      b.setAttribute('aria-pressed', state.calcCategory===v ? "true":"false");
+      b.addEventListener('click', function(){
+        state.calcCategory = v;
+        buildCalcCategoryChips();
+        renderCalc();
+      });
+      el.appendChild(b);
+    });
+  }
+
+  var TERM_PRESETS = [12,24,36,48,60];
+
+  function buildCalcTermChips(){
+    var el = document.getElementById('calcTermChips');
+    el.innerHTML = "";
+    TERM_PRESETS.forEach(function(v){
+      var b = document.createElement('button');
+      b.type = "button";
+      b.className = "chip";
+      b.textContent = v+" "+t().monthsShort;
+      b.setAttribute('aria-pressed', state.calcTerm===v ? "true":"false");
+      b.addEventListener('click', function(){
+        state.calcTerm = v;
+        document.getElementById('calcTermInput').value = v;
+        buildCalcTermChips();
+        renderCalc();
+      });
+      el.appendChild(b);
+    });
+  }
+
+  function syncCalcInputs(){
+    document.getElementById('calcAmount').value = state.calcAmount;
+    document.getElementById('calcAmountInput').value = state.calcAmount;
+    document.getElementById('calcTermInput').value = state.calcTerm;
+    buildCalcTermChips();
+  }
+
+  function passesCalcFilters(d){
+    if(d.category!==state.calcCategory) return false;
+    if(d.minAmount!=null && state.calcAmount<d.minAmount) return false;
+    if(d.maxAmount!=null && state.calcAmount>d.maxAmount) return false;
+    if(d.minTerm!=null && state.calcTerm<d.minTerm) return false;
+    if(d.maxTerm!=null && state.calcTerm>d.maxTerm) return false;
+    return true;
+  }
+
+  function renderCalcCard(d){
+    var rate = rateDisplay(d);
+    var product = d.product[state.lang] || d.product.ru;
+    var conditions = d.conditions[state.lang] || d.conditions.ru;
+    var payment = calcMonthlyPayment(state.calcAmount, d.rateMin, state.calcTerm);
+
+    var card = document.createElement('article');
+    card.className = "card";
+
+    var top = document.createElement('div');
+    top.className = "card-top";
+    var bankEl = document.createElement('span');
+    bankEl.className = "bank-name";
+    bankEl.textContent = d.bank;
+    var badgeEl = document.createElement('span');
+    badgeEl.className = "badge "+(CAT_CLASS[d.category]||"badge-consumer");
+    badgeEl.textContent = t().categories[d.category] || d.category;
+    top.appendChild(bankEl); top.appendChild(badgeEl);
+
+    var name = document.createElement('h3');
+    name.className = "product-name";
+    name.textContent = product;
+
+    var rateBlock = document.createElement('div');
+    rateBlock.className = "rate-block";
+    var payVal = document.createElement('span');
+    if(payment==null){
+      payVal.className = "payment-value unknown";
+      payVal.textContent = t().onRequest;
+    } else {
+      payVal.className = "payment-value";
+      payVal.innerHTML = "~"+fmtMoney(Math.round(payment))+'<span class="payment-unit">'+t().paymentUnit+'</span>';
+    }
+    rateBlock.appendChild(payVal);
+    var rateMeta = document.createElement('span');
+    rateMeta.className = "rate-meta";
+    var tRate = document.createElement('span'); tRate.className="tag";
+    tRate.textContent = rate.unknown ? t().onRequest : rate.text+"%";
+    rateMeta.appendChild(tRate);
+    if(d.rateType){
+      var t1 = document.createElement('span'); t1.className="tag"; t1.textContent = t().rateTypes[d.rateType]||d.rateType;
+      rateMeta.appendChild(t1);
+    }
+    if(d.aprMin!=null){
+      var t2 = document.createElement('span'); t2.className="tag";
+      t2.textContent = t().aprPrefix+d.aprMin+"%"+(d.aprMax!=null&&d.aprMax!==d.aprMin?"–"+d.aprMax+"%":"");
+      rateMeta.appendChild(t2);
+    }
+    rateBlock.appendChild(rateMeta);
+
+    var metaGrid = document.createElement('dl');
+    metaGrid.className = "meta-grid";
+    metaGrid.innerHTML =
+      '<div><dt>'+t().sum+'</dt><dd>'+fmtMoney(state.calcAmount)+'</dd></div>'+
+      '<div><dt>'+t().term+'</dt><dd>'+fmtTerm(state.calcTerm)+'</dd></div>'+
+      '<div><dt>'+t().currency+'</dt><dd>'+d.currency+'</dd></div>';
+
+    card.appendChild(top);
+    card.appendChild(name);
+    card.appendChild(rateBlock);
+    card.appendChild(metaGrid);
+
+    if(conditions){
+      var cond = document.createElement('p');
+      cond.className = "conditions";
+      cond.textContent = conditions;
+      card.appendChild(cond);
+    }
+
+    var link = document.createElement('a');
+    link.className = "source-link";
+    link.href = d.url;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = t().sourceLink;
+    card.appendChild(link);
+
+    return card;
+  }
+
+  function sortCalcItems(items){
+    var arr = items.slice();
+    function paymentOf(d){
+      var p = calcMonthlyPayment(state.calcAmount, d.rateMin, state.calcTerm);
+      return p==null ? null : p;
+    }
+    function withFallback(v, fallback){ return v==null ? fallback : v; }
+    switch(state.calcSort){
+      case "paymentDesc":
+        arr.sort(function(a,b){ return withFallback(paymentOf(b),-1)-withFallback(paymentOf(a),-1); });
+        break;
+      case "rateAsc":
+        arr.sort(function(a,b){ return withFallback(a.rateMin,999)-withFallback(b.rateMin,999); });
+        break;
+      case "aprAsc":
+        arr.sort(function(a,b){ return withFallback(a.aprMin,999)-withFallback(b.aprMin,999); });
+        break;
+      case "bank":
+        arr.sort(function(a,b){
+          var pa = d_product(a), pb = d_product(b);
+          return a.bank.localeCompare(b.bank) || pa.localeCompare(pb);
+        });
+        break;
+      case "paymentAsc":
+      default:
+        arr.sort(function(a,b){
+          var fa = withFallback(paymentOf(a),Infinity);
+          var fb = withFallback(paymentOf(b),Infinity);
+          if(fa!==fb) return fa-fb;
+          return withFallback(a.rateMin,999)-withFallback(b.rateMin,999);
+        });
+        break;
+    }
+    return arr;
+  }
+  function d_product(d){ return d.product[state.lang] || d.product.ru || ""; }
+
+  function renderCalc(){
+    saveState();
+    var matched = sortCalcItems(DATA.filter(passesCalcFilters));
+    var grid = document.getElementById('calcResultsGrid');
+    grid.innerHTML = "";
+    var frag = document.createDocumentFragment();
+    matched.forEach(function(d){ frag.appendChild(renderCalcCard(d)); });
+    grid.appendChild(frag);
+
+    document.getElementById('calcEmptyState').hidden = matched.length>0;
+    document.getElementById('calcResultCount').innerHTML = t().calcResultCount(matched.length, fmtMoney(state.calcAmount), fmtTerm(state.calcTerm));
+  }
+
+  var ANALYTICS_CATS = ["consumer","mortgage"];
+  var RAMP = {
+    consumer: ["#BFE0DE","#A9D6D3","#93CCC8","#7DC2BD","#67B2AC","#51A299","#3C8F87","#2E7F77","#226F6A","#1A5D59"],
+    mortgage: ["#F3DDAF","#EBCE93","#E2BF77","#D8AF5F","#CC9F4C","#BE8F3E","#AE7F34","#9C6F2C","#8A5F26","#785022"]
+  };
+  var SOLID = { consumer: "#1F6F72", mortgage: "#A9752B" };
+
+  function computeBankAggregate(cat){
+    var out = {};
+    banksList.forEach(function(b){
+      var rates = DATA.filter(function(d){ return d.bank===b && d.category===cat && d.rateMin!=null && d.rateMin>0; })
+                      .map(function(d){ return d.rateMin; });
+      out[b] = rates.length ? Math.min.apply(null, rates) : null;
+    });
+    return out;
+  }
+
+  function buildAnalyticsCategoryChips(){
+    var el = document.getElementById('analyticsCategoryChips');
+    el.innerHTML = "";
+    ANALYTICS_CATS.forEach(function(cat){
+      var b = document.createElement('button');
+      b.type = "button";
+      b.className = "chip";
+      b.textContent = t().categories[cat];
+      b.setAttribute('aria-pressed', state.analyticsCategory===cat ? "true":"false");
+      b.addEventListener('click', function(){
+        if(state.analyticsCategory===cat) return;
+        state.analyticsCategory = cat;
+        state.analyticsSelectedBank = null;
+        saveState();
+        buildAnalyticsCategoryChips();
+        renderAnalyticsChart();
+        hideTrend();
+      });
+      el.appendChild(b);
+    });
+  }
+
+  function renderAnalyticsChart(){
+    var cat = state.analyticsCategory;
+    var agg = computeBankAggregate(cat);
+    var items = banksList
+      .map(function(b){ return {bank:b, val:agg[b]}; })
+      .filter(function(it){ return it.val!=null; })
+      .sort(function(a,b){ return a.val-b.val; });
+
+    var ramp = RAMP[cat];
+    var w = 640, barH = 26, gap = 10, leftPad = 132, rightPad = 54, topPad = 8;
+    var vmin = items.length ? items[0].val : 0;
+    var vmax = items.length ? items[items.length-1].val : 1;
+    var base = vmax>vmin ? vmin-(vmax-vmin)*0.15 : vmin-0.5;
+    var plotW = w-leftPad-rightPad;
+    var h = topPad*2 + items.length*(barH+gap) - gap;
+    var parts = ['<svg viewBox="0 0 '+w+' '+Math.max(h,1)+'" width="100%" role="img" aria-label="'+t().categories[cat]+'" class="chart-svg">'];
+    items.forEach(function(it, i){
+      var y = topPad + i*(barH+gap);
+      var frac = vmax>base ? (it.val-base)/(vmax-base) : 1;
+      var bw = Math.max(6, plotW*frac);
+      var color = ramp[Math.min(i, ramp.length-1)];
+      var selected = state.analyticsSelectedBank===it.bank;
+      var label = it.bank.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+      parts.push('<g class="bank-bar'+(selected?' is-selected':'')+'" tabindex="0" role="button" data-bank="'+label+'" aria-label="'+label+': '+it.val+'%">');
+      parts.push('<text x="'+(leftPad-10)+'" y="'+(y+barH*0.68).toFixed(1)+'" text-anchor="end" class="chart-label">'+label+'</text>');
+      parts.push('<rect x="'+leftPad+'" y="'+y+'" width="'+bw.toFixed(1)+'" height="'+barH+'" rx="4" fill="'+color+'"></rect>');
+      parts.push('<text x="'+(leftPad+bw+8).toFixed(1)+'" y="'+(y+barH*0.68).toFixed(1)+'" class="chart-value">'+(it.val%1===0?it.val:it.val)+'%</text>');
+      parts.push('</g>');
+    });
+    parts.push('</svg>');
+    document.getElementById('analyticsChart').innerHTML = parts.join('');
+  }
+
+  function fmtShortDate(iso){
+    try{
+      return new Intl.DateTimeFormat(LOCALE_MAP[state.lang]||"ro-RO", {day:"numeric", month:"short"}).format(new Date(iso+"T00:00:00"));
+    }catch(e){ return iso; }
+  }
+
+  function renderTrend(bank){
+    var cat = state.analyticsCategory;
+    var points = HISTORY.snapshots
+      .map(function(s){ return {date:s.date, val:(s[cat]||{})[bank]}; })
+      .filter(function(p){ return p.val!=null; });
+    if(!points.length){ hideTrend(); return; }
+
+    state.analyticsSelectedBank = bank;
+    document.getElementById('trendTitle').textContent = t().trendTitle(bank, t().categories[cat]);
+    var n = points.length;
+    var from = fmtShortDate(points[0].date);
+    var to = fmtShortDate(points[n-1].date);
+    var subText = t().trendSub(n, from, to);
+    if(n>1 && points[0].val===points[n-1].val) subText += " — " + t().trendNoChange;
+    document.getElementById('trendSub').textContent = subText;
+
+    var w = 560, h = 120, leftPad = 46, rightPad = 46, topPad = 24, bottomPad = 28;
+    var vals = points.map(function(p){return p.val;});
+    var vlo = Math.min.apply(null, vals), vhi = Math.max.apply(null, vals);
+    var padV = vhi>vlo ? (vhi-vlo)*0.25 : 0.5;
+    var vlo2 = vlo-padV, vhi2 = vhi+padV;
+    var plotW = w-leftPad-rightPad, plotH = h-topPad-bottomPad;
+    var color = SOLID[cat];
+    function X(i){ return n>1 ? leftPad+(i/(n-1))*plotW : leftPad+plotW/2; }
+    function Y(v){ return topPad + plotH - ((v-vlo2)/(vhi2-vlo2))*plotH; }
+
+    var parts = ['<svg viewBox="0 0 '+w+' '+h+'" width="100%" role="img" aria-label="'+t().trendTitle(bank,t().categories[cat])+'" class="chart-svg">'];
+    if(n>1){
+      var linePts = points.map(function(p,i){ return X(i).toFixed(1)+","+Y(p.val).toFixed(1); }).join(" ");
+      parts.push('<polyline points="'+linePts+'" fill="none" stroke="'+color+'" stroke-width="2"/>');
+    }
+    points.forEach(function(p,i){
+      var x = X(i), y = Y(p.val);
+      parts.push('<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="5" fill="'+color+'"></circle>');
+      parts.push('<text x="'+x.toFixed(1)+'" y="'+(y-11).toFixed(1)+'" text-anchor="middle" class="chart-value-sm chart-value-strong">'+p.val+'%</text>');
+      parts.push('<text x="'+x.toFixed(1)+'" y="'+(h-8)+'" text-anchor="middle" class="chart-label">'+fmtShortDate(p.date)+'</text>');
+    });
+    parts.push('</svg>');
+    document.getElementById('trendChart').innerHTML = parts.join('');
+
+    document.getElementById('trendPanel').hidden = false;
+    renderAnalyticsChart();
+  }
+
+  function hideTrend(){
+    state.analyticsSelectedBank = null;
+    document.getElementById('trendPanel').hidden = true;
+    renderAnalyticsChart();
+  }
+
+  function bindAnalyticsChartClicks(){
+    var container = document.getElementById('analyticsChart');
+    function activate(target){
+      var g = target.closest ? target.closest('.bank-bar') : null;
+      if(!g) return;
+      var bank = g.getAttribute('data-bank');
+      if(state.analyticsSelectedBank===bank){ hideTrend(); }
+      else { renderTrend(bank); }
+    }
+    container.addEventListener('click', function(e){ activate(e.target); });
+    container.addEventListener('keydown', function(e){
+      if(e.key==="Enter" || e.key===" "){ e.preventDefault(); activate(e.target); }
+    });
+  }
+
+  function switchTab(tab){
+    state.activeTab = tab;
+    saveState();
+    var browseBtn = document.getElementById('tabBrowseBtn');
+    var calcBtn = document.getElementById('tabCalcBtn');
+    var analyticsBtn = document.getElementById('tabAnalyticsBtn');
+    var browseSection = document.getElementById('browseSection');
+    var calcSection = document.getElementById('calcSection');
+    var analyticsSection = document.getElementById('analyticsSection');
+    browseBtn.setAttribute('aria-selected', tab==="browse"?"true":"false");
+    calcBtn.setAttribute('aria-selected', tab==="calc"?"true":"false");
+    analyticsBtn.setAttribute('aria-selected', tab==="analytics"?"true":"false");
+    browseSection.hidden = tab!=="browse";
+    calcSection.hidden = tab!=="calc";
+    analyticsSection.hidden = tab!=="analytics";
+    if(tab==="calc") renderCalc();
+    else if(tab==="analytics") renderAnalyticsChart();
+    else render();
+  }
+
+  function applyI18n(){
+    document.getElementById('taglineText').textContent = t().tagline;
+    document.getElementById('filtersBtnLabel').textContent = t().filtersBtn;
+    document.getElementById('searchLabel').textContent = t().searchLabel;
+    var searchInput = document.getElementById('searchInput');
+    searchInput.placeholder = t().searchPlaceholder;
+    document.getElementById('sortLabel').textContent = t().sortLabel;
+    document.getElementById('categoryLabel').textContent = t().categoryLabel;
+    document.getElementById('bankLabel').textContent = t().bankLabel;
+    document.getElementById('rateTypeLabel').textContent = t().rateTypeLabel;
+    document.getElementById('rateRangeLabel').textContent = t().rateRangeLabel;
+    document.getElementById('amountRangeLabel').textContent = t().amountRangeLabel;
+    document.getElementById('termRangeLabel').textContent = t().termRangeLabel;
+    document.getElementById('resetBtn').textContent = t().resetBtn;
+    document.getElementById('emptyState').textContent = t().emptyState;
+    document.getElementById('footerText').textContent = t().footer;
+
+    document.getElementById('tabBrowseBtn').textContent = t().tabBrowse;
+    document.getElementById('tabCalcBtn').textContent = t().tabCalc;
+    document.getElementById('tabAnalyticsBtn').textContent = t().tabAnalytics;
+    document.getElementById('calcCategoryLabel').textContent = t().calcCategoryLabel;
+    document.getElementById('calcAmountLabel').textContent = t().calcAmountLabel;
+    document.getElementById('calcTermLabel').textContent = t().calcTermLabel;
+    document.getElementById('calcEmptyState').textContent = t().calcEmptyState;
+    document.getElementById('calcDisclaimer').textContent = t().calcDisclaimer;
+    document.getElementById('calcSortLabel').textContent = t().calcSortLabel;
+    document.getElementById('analyticsCategoryLabel').textContent = t().categoryLabel;
+    document.getElementById('analyticsHint').textContent = t().analyticsHint;
+    document.getElementById('analyticsNote').textContent = t().analyticsNote;
+    document.getElementById('trendClose').setAttribute('aria-label', t().trendCloseLabel);
+
+    var sortSelect = document.getElementById('sortSelect');
+    var sortOpts = t().sortOptions;
+    Array.prototype.forEach.call(sortSelect.options, function(opt){
+      if(sortOpts[opt.value]) opt.textContent = sortOpts[opt.value];
+    });
+
+    var calcSortSelect = document.getElementById('calcSortSelect');
+    var calcSortOpts = t().calcSortOptions;
+    Array.prototype.forEach.call(calcSortSelect.options, function(opt){
+      if(calcSortOpts[opt.value]) opt.textContent = calcSortOpts[opt.value];
+    });
+    calcSortSelect.value = state.calcSort;
+
+    document.getElementById('langSelect').value = state.lang;
+
+    buildAllChips();
+    buildCalcCategoryChips();
+    buildAnalyticsCategoryChips();
+    updateRangeLabels();
+    syncCalcInputs();
+
+    var browseBtn = document.getElementById('tabBrowseBtn');
+    var calcBtn = document.getElementById('tabCalcBtn');
+    var analyticsBtn = document.getElementById('tabAnalyticsBtn');
+    var browseSection = document.getElementById('browseSection');
+    var calcSection = document.getElementById('calcSection');
+    var analyticsSection = document.getElementById('analyticsSection');
+    browseBtn.setAttribute('aria-selected', state.activeTab==="browse"?"true":"false");
+    calcBtn.setAttribute('aria-selected', state.activeTab==="calc"?"true":"false");
+    analyticsBtn.setAttribute('aria-selected', state.activeTab==="analytics"?"true":"false");
+    browseSection.hidden = state.activeTab!=="browse";
+    calcSection.hidden = state.activeTab!=="calc";
+    analyticsSection.hidden = state.activeTab!=="analytics";
+
+    render();
+    renderCalc();
+    renderAnalyticsChart();
+    if(state.analyticsSelectedBank) renderTrend(state.analyticsSelectedBank);
+  }
+
+  function bindStaticControls(){
+    var rateRange = document.getElementById('rateRange');
+    var amountRange = document.getElementById('amountRange');
+    var termRange = document.getElementById('termRange');
+    rateRange.value = state.maxRate;
+    amountRange.value = state.minAmount;
+    termRange.value = state.minTerm;
+
+    rateRange.addEventListener('input', function(){ state.maxRate = parseFloat(rateRange.value); updateRangeLabels(); render(); });
+    amountRange.addEventListener('input', function(){ state.minAmount = parseInt(amountRange.value,10); updateRangeLabels(); render(); });
+    termRange.addEventListener('input', function(){ state.minTerm = parseInt(termRange.value,10); updateRangeLabels(); render(); });
+
+    var searchInput = document.getElementById('searchInput');
+    searchInput.value = state.search;
+    searchInput.addEventListener('input', function(e){ state.search = e.target.value; render(); });
+
+    var sortSelect = document.getElementById('sortSelect');
+    sortSelect.value = state.sort;
+    sortSelect.addEventListener('change', function(e){ state.sort = e.target.value; render(); });
+
+    document.getElementById('resetBtn').addEventListener('click', function(){
+      state.search=""; state.categories=new Set(); state.banks=new Set(); state.rateTypes=new Set();
+      state.maxRate=35; state.minAmount=0; state.minTerm=0; state.sort="rateAsc";
+      searchInput.value="";
+      sortSelect.value="rateAsc";
+      rateRange.value=35; amountRange.value=0; termRange.value=0;
+      buildAllChips();
+      updateRangeLabels();
+      render();
+    });
+
+    var toggleBtn = document.getElementById('filtersToggle');
+    var panel = document.getElementById('filtersPanel');
+    toggleBtn.addEventListener('click', function(){
+      var isHidden = panel.hasAttribute('hidden');
+      if(isHidden){ panel.removeAttribute('hidden'); toggleBtn.setAttribute('aria-expanded','true'); }
+      else { panel.setAttribute('hidden',''); toggleBtn.setAttribute('aria-expanded','false'); }
+    });
+
+    var langSelect = document.getElementById('langSelect');
+    langSelect.value = state.lang;
+    langSelect.addEventListener('change', function(e){
+      state.lang = e.target.value;
+      saveState();
+      applyI18n();
+    });
+
+    document.getElementById('tabBrowseBtn').addEventListener('click', function(){ switchTab('browse'); });
+    document.getElementById('tabCalcBtn').addEventListener('click', function(){ switchTab('calc'); });
+    document.getElementById('tabAnalyticsBtn').addEventListener('click', function(){ switchTab('analytics'); });
+    document.getElementById('trendClose').addEventListener('click', hideTrend);
+    bindAnalyticsChartClicks();
+
+    var calcAmount = document.getElementById('calcAmount');
+    var calcAmountInput = document.getElementById('calcAmountInput');
+    var calcTermInput = document.getElementById('calcTermInput');
+    calcAmount.value = state.calcAmount;
+    calcAmountInput.value = state.calcAmount;
+    calcTermInput.value = state.calcTerm;
+
+    calcAmount.addEventListener('input', function(){
+      state.calcAmount = parseInt(calcAmount.value,10);
+      calcAmountInput.value = state.calcAmount;
+      renderCalc();
+    });
+    calcAmountInput.addEventListener('input', function(){
+      var v = parseInt(calcAmountInput.value,10);
+      if(isNaN(v)) return;
+      v = Math.max(3000, Math.min(7000000, v));
+      state.calcAmount = v;
+      calcAmount.value = v;
+      renderCalc();
+    });
+
+    calcTermInput.addEventListener('input', function(){
+      var v = parseInt(calcTermInput.value,10);
+      if(isNaN(v)) return;
+      v = Math.max(1, Math.min(360, v));
+      state.calcTerm = v;
+      buildCalcTermChips();
+      renderCalc();
+    });
+
+    var calcSortSelect = document.getElementById('calcSortSelect');
+    calcSortSelect.value = state.calcSort;
+    calcSortSelect.addEventListener('change', function(e){ state.calcSort = e.target.value; renderCalc(); });
+  }
+
+  bindStaticControls();
+  applyI18n();
+})();
+</script>
+
+</body></html>
