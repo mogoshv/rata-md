@@ -152,6 +152,12 @@ def build_head(lang, r, date_iso):
     ])
 
 
+def normalize_attrs(markup):
+    """Chromium versions differ in escaping < and > inside attribute values; pin one form."""
+    return re.sub(r'="([^"]*)"',
+                  lambda m: '="' + m.group(1).replace("<", "&lt;").replace(">", "&gt;") + '"', markup)
+
+
 def build_page(src, lang, r, date_iso):
     doc = replace_once(src, r'<html lang="[^"]*"', '<html lang="%s"' % lang, "<html lang>")
     doc = replace_once(doc, r"(<!-- SEO:HEAD\b[^>]*-->).*?(<!-- /SEO:HEAD -->)",
@@ -169,11 +175,11 @@ def build_page(src, lang, r, date_iso):
     doc = replace_once(doc, r'(<span id="badgeText">)[^<]*(</span>)',
                        lambda m: m.group(1) + esc(r["badge"]) + m.group(2), "#badgeText")
     doc = replace_once(doc, r'(<tbody id="browseRows">).*?(</tbody>)',
-                       lambda m: m.group(1) + r["rows"] + m.group(2), "#browseRows")
+                       lambda m: m.group(1) + normalize_attrs(r["rows"]) + m.group(2), "#browseRows")
     doc = replace_once(doc, r'(<p class="count" id="resultCount"[^>]*>).*?(</p>)',
-                       lambda m: m.group(1) + r["resultCount"] + m.group(2), "#resultCount")
+                       lambda m: m.group(1) + normalize_attrs(r["resultCount"]) + m.group(2), "#resultCount")
     doc = replace_once(doc, r'(<select class="select" id="sortSelect">).*?(</select>)',
-                       lambda m: m.group(1) + r["sortOptions"] + m.group(2), "#sortSelect")
+                       lambda m: m.group(1) + normalize_attrs(r["sortOptions"]) + m.group(2), "#sortSelect")
     doc = re.sub(r'(<button type="button" data-lang="(\w+)" aria-pressed=")(?:true|false)(")',
                  lambda m: m.group(1) + ("true" if m.group(2) == lang else "false") + m.group(3), doc)
     return doc
